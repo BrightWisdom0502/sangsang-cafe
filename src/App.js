@@ -1,7 +1,9 @@
+import Main from "./components/MainMenuPage/Main";
+
 const App = () => {
   return (
     <div className="App">
-      상상카페
+      <Main />
     </div>
   );
 }
