@@ -1,6 +1,6 @@
 import OrderDetails from "./OrderDetails";
-import TotalOrderedList from "./TotalOrderList";
-import TotalInfo from "./TotalRevenueAndOrderCount";
+import TotalOrderedList from "./TotalOrderedList";
+import TotalInfo from "./TotalInfo";
 
 
 const ViewOrderList = () => {
