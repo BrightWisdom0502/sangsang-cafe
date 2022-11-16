@@ -18,6 +18,10 @@ const totalOrderContainerStyle = {
   flexDirection: "column"
 };
 
+const h1Style = {
+  fontWeight: "bold"
+};
+
 const TotalInfo = () => {
   // 총 매출, 주문 수 계산
   let tempRevenue = 0, tempOrderCound = 0
@@ -33,11 +37,11 @@ const TotalInfo = () => {
     <div id="component-total-info" style={componentStyle}>
       <div id="total-revenue-container" style={totalRevenueContainerStyle}>
         <h2>매출</h2>
-        <h1>{revenue}원</h1>
+        <h1 style={h1Style}>{revenue}원</h1>
       </div>
       <div id="total-order-container" style={totalOrderContainerStyle}>
         <h2>주문</h2>
-        <h1>{orderCount}건</h1>
+        <h1 style={h1Style}>{orderCount}건</h1>
       </div>
     </div>
   );

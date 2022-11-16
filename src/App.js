@@ -1,10 +1,10 @@
 import Main from "./components/MainMenuPage/Main";
-import TotalInfo from "./components/ViewOrderListPage/TotalInfo";
+import ViewOrderList from "./components/ViewOrderListPage/ViewOrderList";
 
 const App = () => {
   return (
     <div className="App">
-      <TotalInfo />
+      <ViewOrderList />
     </div>
   );
 }
