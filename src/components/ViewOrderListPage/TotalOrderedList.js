@@ -17,6 +17,10 @@ const TotalOrderedList = ({ changeSetCurrentViewOrder }) => {
     }
   });
 
+  const passingFunc = (datetime) => {
+    changeSetCurrentViewOrder(datetime);
+  }
+
   return (
     <div id="component-total-ordered-list" style={componenetStyle}>
       <Accordion defaultActiveKey="0">
@@ -40,7 +44,7 @@ const TotalOrderedList = ({ changeSetCurrentViewOrder }) => {
                           datetime={data.date}
                           menus={data.products}
                           cost={data.cost}
-                          changeSetCurrentViewOrder={changeSetCurrentViewOrder}
+                          changeSetCurrentViewOrder={passingFunc}
                           key={i} />
                       );
                     })

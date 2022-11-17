@@ -7,22 +7,47 @@ import TotalInfo from "./TotalInfo";
 import order_list from "../../data/order_list.json";
 
 const componentStyle = {
+  display: "flex",
+  flexDirection: "row",
+  height: "100vh",
   padding: "30px"
 };
 
+const infoOrderListContainerStyle = {
+  display: "flex",
+  flexDirection: "column",
+  width: "50%",
+  height: "100%",
+  paddingRight: "30px"
+}
+
+const orderDetailsContainerStyle = {
+  display: "flex",
+  alignItems: "center",
+  justifyContent: "center",
+  width: "50%",
+  height: "100%",
+  paddingLeft: "30px"
+}
+
 const ViewOrderList = () => {
-  const [currentViewOrder, setCurrentViewOrder] = useState(order_list[0]);
+  const [currentOrder, setCurrentOrder] = useState(order_list[order_list.length - 1]);
 
   const changeCurrentViewOrder = (datetime) => {
+    console.log("changeCurrentViewOrder");
     const order = order_list.filter(data => data.date === datetime);
-    setCurrentViewOrder(order);
+    setCurrentOrder(order[0]);
   }
 
   return (
     <div id="view-order-list" style={componentStyle}>
-      <TotalInfo />
-      <TotalOrderedList changeSetCurrentViewOrder={changeCurrentViewOrder} />
-      <OrderDetails currentOrder={currentViewOrder} />
+      <div id="info-order-list-container" style={infoOrderListContainerStyle}>
+        <TotalInfo />
+        <TotalOrderedList changeSetCurrentViewOrder={changeCurrentViewOrder} />
+      </div>
+      <div id="order-details-container" style={orderDetailsContainerStyle}>
+        <OrderDetails currentOrder={currentOrder} />
+      </div>
     </div>
   );
 }
