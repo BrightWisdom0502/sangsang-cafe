@@ -1,8 +1,8 @@
-const OrderDetails = () => {
+const OrderDetails = ({ currentOrder }) => {
   return (
-    <>
-
-    </>
+    <div id="order-details">
+      
+    </div>
   );
 }
 

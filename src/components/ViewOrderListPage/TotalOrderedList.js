@@ -8,7 +8,7 @@ const componenetStyle = {
   marginTop: "30px"
 }
 
-const TotalOrderedList = () => {
+const TotalOrderedList = ({ changeSetCurrentViewOrder }) => {
   const dayList = [];
 
   order_list.map(data => {
@@ -37,9 +37,10 @@ const TotalOrderedList = () => {
                     dayOrderList.map((data, i) => {
                       return (
                         <OrderDetailItem
-                          time={data.date.split(" ")[1]}
+                          datetime={data.date}
                           menus={data.products}
                           cost={data.cost}
+                          changeSetCurrentViewOrder={changeSetCurrentViewOrder}
                           key={i} />
                       );
                     })
