@@ -8,7 +8,7 @@ const componenetStyle = {
   marginTop: "30px"
 }
 
-const TotalOrderedList = ({ changeSetCurrentViewOrder }) => {
+const TotalOrderedList = ({ updateCurrentOrder }) => {
   const dayList = [];
 
   order_list.map(data => {
@@ -16,10 +16,6 @@ const TotalOrderedList = ({ changeSetCurrentViewOrder }) => {
       dayList.push(data.date.split(" ")[0]);
     }
   });
-
-  const passingFunc = (datetime) => {
-    changeSetCurrentViewOrder(datetime);
-  }
 
   return (
     <div id="component-total-ordered-list" style={componenetStyle}>
@@ -41,10 +37,8 @@ const TotalOrderedList = ({ changeSetCurrentViewOrder }) => {
                     dayOrderList.map((data, i) => {
                       return (
                         <OrderDetailItem
-                          datetime={data.date}
-                          menus={data.products}
-                          cost={data.cost}
-                          changeSetCurrentViewOrder={passingFunc}
+                          order={data}
+                          updateCurrentOrder={updateCurrentOrder}
                           key={i} />
                       );
                     })

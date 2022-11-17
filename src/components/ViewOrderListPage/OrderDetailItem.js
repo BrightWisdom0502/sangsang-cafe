@@ -1,5 +1,6 @@
 import Card from 'react-bootstrap/Card';
 import Button from 'react-bootstrap/Button';
+import { useEffect } from 'react';
 
 const componentStyle = {
   display: "flex",
@@ -18,31 +19,23 @@ const viewDetailButtonStyle = {
   marginRight: "20px"
 }
 
-const testEvent = () => {
-  console.log("This is a test!");
-}
-
-const OrderDetailItem = ({ datetime, menus, cost, changeSetCurrentViewOrder }) => {
-  const menu = (menus.length > 1) ?
-    <p>{menus[0]} 외 {menus.length - 1}건</p> : <p>{menus[0]}</p>;
-
-  const detailButtonEvent = (datetime) => {
-    changeSetCurrentViewOrder(datetime);
-  }
+const OrderDetailItem = ({ order, updateCurrentOrder }) => {
+  const menu = (order.products.length > 1) ?
+    <p>{order.products[0]} 외 {order.products.length - 1}건</p> : <p>{order.products[0]}</p>;
 
   return (
     <Card>
       <Card.Body style={componentStyle}>
         <div id="time-and-order-container">
-          <p>{datetime.split(" ")[1]}</p>
+          <p>{order.date.split(" ")[1]}</p>
           {menu}
         </div>
         <div id="revenue-button-container" style={revenueButtonContainerStyle}>
           <div id="revenue-container">
-            <h2>{cost}원</h2>
+            <h2>{order.cost}원</h2>
           </div>
           <div id="view-detail-button-container" style={viewDetailButtonStyle}>
-            <Button onClick={detailButtonEvent(datetime)}>상세</Button>
+            <Button onClick={() => {updateCurrentOrder(order)}}>상세</Button>
           </div>
         </div>
       </Card.Body>

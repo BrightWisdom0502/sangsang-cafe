@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 
 import OrderDetails from "./OrderDetails";
 import TotalOrderedList from "./TotalOrderedList";
@@ -31,19 +31,17 @@ const orderDetailsContainerStyle = {
 }
 
 const ViewOrderList = () => {
-  const [currentOrder, setCurrentOrder] = useState(order_list[order_list.length - 1]);
+  const [currentOrder, setCurrentOrder] = useState(order_list[0]);
 
-  const changeCurrentViewOrder = (datetime) => {
-    console.log("changeCurrentViewOrder");
-    const order = order_list.filter(data => data.date === datetime);
-    setCurrentOrder(order[0]);
-  }
+  // const updateCurrentOrder = (order) => {
+  //   setCurrentOrder(order);
+  // }
 
   return (
     <div id="view-order-list" style={componentStyle}>
       <div id="info-order-list-container" style={infoOrderListContainerStyle}>
         <TotalInfo />
-        <TotalOrderedList changeSetCurrentViewOrder={changeCurrentViewOrder} />
+        <TotalOrderedList updateCurrentOrder={setCurrentOrder} />
       </div>
       <div id="order-details-container" style={orderDetailsContainerStyle}>
         <OrderDetails currentOrder={currentOrder} />
