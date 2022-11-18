@@ -17,12 +17,14 @@ const componentStyle = {
 const revenueTimeContainerStyle = {
   display: "flex",
   flexDirection: "row",
-  marginBottom: "70px"
+  marginBottom: "70px",
+  justifyContent: "center"
 }
 
 const menuContainerStyle = {
   display: "flex",
-  flexDirection: "row"
+  flexDirection: "row",
+  justifyContent: "space-around"
 }
 
 const menusStyle = {
@@ -33,7 +35,8 @@ const menusStyle = {
 const priceAndAmountStyle = {
   display: "flex",
   flexDirection: "column",
-  marginLeft: "50px"
+  marginLeft: "50px",
+  textAlign: "center"
 }
 
 const OrderDetails = ({ currentOrder }) => {
@@ -78,8 +81,8 @@ const OrderDetails = ({ currentOrder }) => {
     <div id="order-details" style={{width: "100%", height: "100%"}}>
       <Card style={{height: "100%"}}>
         <Card.Body style={componentStyle}>
-          <div id="order-detail-title">
-            <h1 style={{fontSize: "70px", marginBottom: "50px"}}>주문 상세</h1> 
+          <div id="order-detail-title" style={{textAlign: "center"}}>
+            <h1 style={{fontSize: "70px", marginBottom: "70px"}}>주문 상세</h1> 
           </div>
           <div id="order-detail-revenue-time" style={revenueTimeContainerStyle}>
             <div style={{marginRight: "60px"}}>
@@ -93,26 +96,26 @@ const OrderDetails = ({ currentOrder }) => {
           </div>
           <div id="order-detail-menu-container" style={menuContainerStyle}>
             <div id="order-detail-menus" style={menusStyle}>
-              <h3>메뉴명</h3>
+              <h3 style={{fontSize: "30px"}}>메뉴명</h3>
               {
                 currentOrderInfo.map((menu, i) => {
-                  return <span key={i}>{menu.menu}</span>
+                  return <span style={{fontSize: "30px"}} key={i}>{menu.menu}</span>
                 })
               }
             </div>
             <div id="order-detail-price" style={priceAndAmountStyle}>
-              <h3>가격</h3>
+              <h3 style={{fontSize: "30px"}}>가격</h3>
               {
                 currentOrderInfo.map((menu, i) => {
-                  return <span key={i}>{menu.price}</span>
+                  return <span style={{fontSize: "30px"}} key={i}>{menu.price}</span>
                 })
               }
             </div>
             <div id="order-detail-amount" style={priceAndAmountStyle}>
-              <h3>수량</h3>
+              <h3 style={{fontSize: "30px"}}>수량</h3>
               {
                 currentOrderInfo.map((menu, i) => {
-                  return <span key={i}>{menu.amount.toString()}</span>
+                  return <span style={{fontSize: "30px"}} key={i}>{menu.amount.toString()}</span>
                 })
               }
             </div>

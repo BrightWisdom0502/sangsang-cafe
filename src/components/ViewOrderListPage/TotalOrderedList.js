@@ -11,7 +11,8 @@ const componenetStyle = {
 const TotalOrderedList = ({ updateCurrentOrder }) => {
   const dayList = [];
 
-  order_list.map(data => {
+  // 최신순 출력을 위한 주문 기록 reverse()
+  order_list.slice(0).reverse().map(data => {
     if (!dayList.includes(data.date.split(" ")[0])) {
       dayList.push(data.date.split(" ")[0]);
     }
@@ -34,7 +35,7 @@ const TotalOrderedList = ({ updateCurrentOrder }) => {
                 <Accordion.Header>{date}</Accordion.Header>
                 <Accordion.Body>
                   {
-                    dayOrderList.map((data, i) => {
+                    dayOrderList.slice(0).reverse().map((data, i) => {
                       return (
                         <OrderDetailItem
                           order={data}

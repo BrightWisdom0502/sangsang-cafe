@@ -10,7 +10,8 @@ const componentStyle = {
   display: "flex",
   flexDirection: "row",
   height: "100vh",
-  padding: "30px"
+  padding: "30px",
+  backgroundColor: "#A4D3A0"
 };
 
 const infoOrderListContainerStyle = {

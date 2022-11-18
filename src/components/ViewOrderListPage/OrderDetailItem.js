@@ -35,7 +35,7 @@ const OrderDetailItem = ({ order, updateCurrentOrder }) => {
             <h2>{order.cost}원</h2>
           </div>
           <div id="view-detail-button-container" style={viewDetailButtonStyle}>
-            <Button onClick={() => {updateCurrentOrder(order)}}>상세</Button>
+            <Button style={{backgroundColor: "green", border: "none"}} onClick={() => {updateCurrentOrder(order)}}>상세</Button>
           </div>
         </div>
       </Card.Body>
