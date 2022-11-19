@@ -1,6 +1,5 @@
 import Card from 'react-bootstrap/Card';
 import Button from 'react-bootstrap/Button';
-import { useEffect } from 'react';
 
 const componentStyle = {
   display: "flex",

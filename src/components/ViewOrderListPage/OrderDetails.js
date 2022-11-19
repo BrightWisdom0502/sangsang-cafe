@@ -1,4 +1,3 @@
-import Toast from 'react-bootstrap/Toast';
 import Card from 'react-bootstrap/Card';
 
 import beverage from "../../data/beverage.json";
@@ -74,8 +73,6 @@ const OrderDetails = ({ currentOrder }) => {
       temp.push(menu);
     }
   });
-
-  console.log(currentOrderInfo);
 
   return (
     <div id="order-details" style={{width: "100%", height: "100%"}}>
