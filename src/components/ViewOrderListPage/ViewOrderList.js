@@ -1,4 +1,7 @@
-import { useEffect, useState } from "react";
+import { useState } from "react";
+import Button from "react-bootstrap/Button";
+import { AiFillHome } from "react-icons/ai";
+import { BiArrowBack } from "react-icons/bi";
 
 import OrderDetails from "./OrderDetails";
 import TotalOrderedList from "./TotalOrderedList";
@@ -22,6 +25,17 @@ const infoOrderListContainerStyle = {
   paddingRight: "30px"
 }
 
+const buttonInfoContainerStyle = {
+  display: "flex",
+  flexDirection: "row"
+}
+
+const buttonStyle = {
+  width: "100px",
+  marginRight: "30px",
+  textAlign: "center"
+}
+
 const orderDetailsContainerStyle = {
   display: "flex",
   alignItems: "center",
@@ -32,16 +46,20 @@ const orderDetailsContainerStyle = {
 }
 
 const ViewOrderList = () => {
-  const [currentOrder, setCurrentOrder] = useState(order_list[0]);
-
-  // const updateCurrentOrder = (order) => {
-  //   setCurrentOrder(order);
-  // }
+  const [currentOrder, setCurrentOrder] = useState(order_list[order_list.length - 1]);
 
   return (
     <div id="view-order-list" style={componentStyle}>
       <div id="info-order-list-container" style={infoOrderListContainerStyle}>
-        <TotalInfo />
+        <div id="button-info-container" style={buttonInfoContainerStyle}>
+          <Button variant="outline-dark" style={buttonStyle}>
+            <AiFillHome style={{fontSize: "50px"}} />
+          </Button>
+          <Button variant="outline-dark" style={buttonStyle}>
+            <BiArrowBack style={{fontSize: "50px"}} />
+          </Button>
+          <TotalInfo />
+        </div>
         <TotalOrderedList updateCurrentOrder={setCurrentOrder} />
       </div>
       <div id="order-details-container" style={orderDetailsContainerStyle}>
