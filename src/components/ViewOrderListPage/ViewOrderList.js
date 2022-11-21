@@ -1,4 +1,5 @@
 import { useState } from "react";
+import { Link } from "react-router-dom";
 import Button from "react-bootstrap/Button";
 import { AiFillHome } from "react-icons/ai";
 import { BiArrowBack } from "react-icons/bi";
@@ -36,6 +37,10 @@ const buttonStyle = {
   textAlign: "center"
 }
 
+const buttonIconStyle = {
+  fontSize: "50px"
+}
+
 const orderDetailsContainerStyle = {
   display: "flex",
   alignItems: "center",
@@ -53,10 +58,12 @@ const ViewOrderList = () => {
       <div id="info-order-list-container" style={infoOrderListContainerStyle}>
         <div id="button-info-container" style={buttonInfoContainerStyle}>
           <Button variant="outline-dark" style={buttonStyle}>
-            <AiFillHome style={{fontSize: "50px"}} />
+            <Link style={{color: "inherit", textDecoration: "inherit"}} to="/"><AiFillHome style={buttonIconStyle} /></Link>
+            {/* <AiFillHome style={{fontSize: "50px"}} /> */}
           </Button>
           <Button variant="outline-dark" style={buttonStyle}>
-            <BiArrowBack style={{fontSize: "50px"}} />
+            <Link style={{color: "inherit", textDecoration: "inherit"}} to="/admin-choice"><BiArrowBack style={buttonIconStyle} /></Link>
+            {/* <BiArrowBack style={{fontSize: "50px"}} /> */}
           </Button>
           <TotalInfo />
         </div>
