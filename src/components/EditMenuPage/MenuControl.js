@@ -1,18 +1,13 @@
 import Card from 'react-bootstrap/Card';
 import ListGroup from 'react-bootstrap/ListGroup';
 
-const ComponentStyle = {
-  display: "flex",
-  flexDirection: "row",
-  height: "100vh",
-  padding: "30px",
-  backgroundColor: "#A4D3A0"
-};
 
 const AdminMenuStyle = {
-  positiin : "absolute",
-  marginLeft : "30px",
-  width : "93vw"
+  position : "absolute",
+  marginTop : "10px",
+  marginLeft : "65%",
+  width : "30vw",
+  height : "80vh"
 };
 
 const ButtonStyle = {
@@ -23,7 +18,7 @@ const ButtonStyle = {
 
 const MenuControl = () => {
     return (
-      <div id="EditMenu" style={ComponentStyle}>
+      <div id="EditMenu" >
         <div class="card text-left" style={AdminMenuStyle}>
          <div class="card-header">
            <ul class="nav nav-tabs card-header-tabs">
