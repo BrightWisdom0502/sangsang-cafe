@@ -5,10 +5,11 @@
 npm install react
 npm install react-dom
 npm install react-scripts
+npm install react-router
 npm install react-bootstrap bootstrap
 npm install react-icons
 ```
 ```
-npm install react react-dom react-scripts react-bootstrap bootstrap react-icons
+npm install react react-dom react-scripts react-router react-bootstrap bootstrap react-icons
 ```
 
