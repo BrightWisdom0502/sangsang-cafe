@@ -135,76 +135,16 @@ const EditMenu = () => {
       </div>
 
 
-
-      <div style={{ width: '30rem' , height: '40rem' , marginTop: '150px' ,marginLeft: '65%', position: 'absolute'}}>
-          <div id="MenuList" class="list-group">
-
-          <a href="#" class="list-group-item list-group-item-action">
-            <div class="d-flex w-100 justify-content-between">
-              <h5 class="mb-1">메뉴1</h5>
-              <small>설명</small>
-            </div>
-            <p class="mb-1">메뉴설명</p>
-            <small>가격</small>
-          </a>
-
-          <a href="#" class="list-group-item list-group-item-action">
-            <div class="d-flex w-100 justify-content-between">
-              <h5 class="mb-1">메뉴2</h5>
-              <small>설명</small>
-            </div>
-            <p class="mb-1">메뉴설명</p>
-            <small>가격</small>
-          </a>
-
-          <a href="#" class="list-group-item list-group-item-action">
-            <div class="d-flex w-100 justify-content-between">
-              <h5 class="mb-1">메뉴3</h5>
-              <small>설명</small>
-            </div>
-            <p class="mb-1">메뉴설명</p>
-            <small>가격</small>
-          </a>
-
-          <a href="#" class="list-group-item list-group-item-action">
-            <div class="d-flex w-100 justify-content-between">
-              <h5 class="mb-1">메뉴4</h5>
-              <small>설명</small>
-            </div>
-            <p class="mb-1">메뉴설명</p>
-            <small>가격</small>
-          </a>
-
-          <a href="#" class="list-group-item list-group-item-action">
-            <div class="d-flex w-100 justify-content-between">
-              <h5 class="mb-1">메뉴5</h5>
-              <small>설명</small>
-            </div>
-            <p class="mb-1">메뉴설명</p>
-            <small>가격</small>
-          </a>
-
-          <a href="#" class="list-group-item list-group-item-action">
-            <div class="d-flex w-100 justify-content-between">
-              <h5 class="mb-1">메뉴6</h5>
-              <small>설명</small>
-            </div>
-            <p class="mb-1">메뉴설명</p>
-            <small>가격</small>
-          </a>
-
-          <button type="button" class="list-group-item list-group-item-action" style={{  textAlign: 'center' }}>
-            다음 페이지
-          </button>
-
-          
-        </div>   
+      <div style={{ width: '30vh' , height: '80vh' , marginTop: '70px' ,marginLeft: '55vw', position: 'absolute'}}>
+        <MenuControl />
       </div>
+        
+        <>
     
       <MenuCategory />
       <SearchBar />
       <Menus />
-    </>
+        </>
     </div>
 
   );
