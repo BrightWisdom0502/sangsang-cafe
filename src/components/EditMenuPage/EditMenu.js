@@ -200,12 +200,10 @@ const EditMenu = () => {
           
         </div>   
       </div>
-        <>
     
       <MenuCategory />
       <SearchBar />
       <Menus />
-      <MenuControl />
     </>
     </div>
 
