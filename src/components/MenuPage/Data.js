@@ -1,11 +1,13 @@
 import Img4 from "./img/iceAmericano.jpg"
 
 
+
+
 const Data = {
   productData: [
     {
       id: 1,
-      img: Img4,
+      img: "./images/아메리카노.jpg",
       title: "아메리카노",
       desc: "",
       price: 4000,

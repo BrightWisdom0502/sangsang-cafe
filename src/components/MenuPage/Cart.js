@@ -26,8 +26,8 @@ function Cart(props) {
             <thead>
                 <td></td>
                 <td>상품</td>
+                <td>수량</td>
                 <td>가격</td>
-                <td></td>
                 <td></td>
             </thead>
             <tbody>

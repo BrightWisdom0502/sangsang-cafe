@@ -7,7 +7,8 @@ import {CartProvider} from "react-use-cart"
 import styled from "@emotion/styled"
 
 function App() {
-  const [menutop, setMenutop] = useState("Coffee")
+  const [menutop, setMenutop] = useState("Coffee");
+  const [searchInput,setSearchInput] = useState('');
 
   const [filter, setFilter] = useState(Data.productData.filter(item => item.category === "Coffee"));
   const coffee = () => {
@@ -40,13 +41,12 @@ function App() {
   
   
   return (
-    
     <div  className='BackGround'>
       <CartProvider>
       <div className='Kiosk'>
         <div class="search">
           <form>
-            <input type="search" placeholder="메뉴를 검색하시오" class="searchTerm" aria-label="Search through site content"/>
+            <input value={searchInput} placeholder="메뉴를 검색하시오" class="searchTerm" aria-label="Search through site content" onChange={(e)=> setSearchInput(e.target.value)}/>
           </form>
         </div>
       
