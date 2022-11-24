@@ -20,7 +20,7 @@ const HotData = {
       },
       {
         id: 3,
-        img: Img4,
+        img: "./images/에스프레소.jpg",
         title: "에스프레소",
         desc: "",
         price: 4000,
@@ -28,7 +28,7 @@ const HotData = {
       },
       {
         id: 4,
-        img: Img4,
+        img: "./images/바닐라라떼.jpg",
         title: "바닐라라떼",
         desc: "",
         price: 5000,

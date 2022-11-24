@@ -2,11 +2,19 @@ import './Menu.css';
 import Cart from './Cart';
 import React, { useState } from "react";
 import ItemCard from "./itemCard";
-import HotData from "./HotData.js";
+//import HotData from "./HotData.js";
 import IceData from "./IceData";
 import {CartProvider} from "react-use-cart"
 import SearchFilter from "react-filter-search"
 import { Button, ToggleButton, ToggleButtonGroup } from 'react-bootstrap';
+
+import HotData from "../../data/coffee.json";
+
+
+import beverage from "../../data/beverage.json";
+
+import desserts from "../../data/desserts.json";
+import tea from "../../data/tea.json";
 
 function App() {
   const [menutop, setMenutop] = useState("커피");
@@ -15,43 +23,43 @@ function App() {
   
   const ToHot = () => {
     setData(HotData);
-    const coffees = HotData.productData.filter(item => item.category === "Coffee")
+    const coffees = HotData.filter(item => item.category === "Coffee")
     setFilter(coffees)
   }
   const ToIce = () => {
     setData(IceData);
-    const coffees = IceData.productData.filter(item => item.category === "Coffee")
+    const coffees = IceData.filter(item => item.category === "Coffee")
     setFilter(coffees)
   } 
 
-  const [filter, setFilter] = useState(Data.productData.filter(item => item.category === "Coffee"));
+  const [filter, setFilter] = useState(Data.filter(item => item.category === "Coffee"));
   const coffee = () => {
-    const coffees = Data.productData.filter(item => item.category === "Coffee")
+    const coffees = Data.filter(item => item.category === "Coffee")
     const menutop = "커피";
     setFilter(coffees)
     setMenutop(menutop)
   
   }
   const tea = () => {
-    const teas = Data.productData.filter(item => item.category === "Tea")
+    const teas = Data.filter(item => item.category === "Tea")
     const menutop = "차";
     setFilter(teas)
     setMenutop(menutop)
   }
   const drink = () => {
-    const drinks = Data.productData.filter(item => item.category === "Drink")
+    const drinks = Data.filter(item => item.category === "Drink")
     const menutop = "음료";
     setFilter(drinks)
     setMenutop(menutop)
   }
   const dessert = () => {
-    const desserts = Data.productData.filter(item => item.category === "Dessert")
+    const desserts = Data.filter(item => item.category === "Dessert")
     const menutop = "디저트";
     setFilter(desserts)
     setMenutop(menutop)
   }
 
-  console.log(Data.productData, "data");
+  console.log(Data, "data");
 
   
   

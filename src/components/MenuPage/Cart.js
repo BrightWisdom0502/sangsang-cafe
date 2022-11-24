@@ -35,7 +35,7 @@ function Cart(props) {
                 return (
                   <tr key={index}>
                     <td>
-                      <img src={item.img} style={{ height: "5.5rem" }} />
+                      <img src={process.env.PUBLIC_URL + "./images/" + item.img} style={{ height: "5.5rem" }} />
                     </td>
                     <td>{item.title}</td>
                     <td>x {item.quantity}</td>
