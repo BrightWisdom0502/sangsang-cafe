@@ -5,12 +5,17 @@
     left: 40px;
     top: 120px;
   }
-  
+  .HotIce_Group {
+    position: absolute;
+    right: 10px;
+
+
+  }
   .searchTerm {
     position: absolute;
     width: 630px;
     height: 60px;
-    left: 77px;
+    left: 50px;
     top: 10px;
   
     font-family: 'Roboto';

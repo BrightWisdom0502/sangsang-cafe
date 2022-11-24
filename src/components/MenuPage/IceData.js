@@ -1,11 +1,11 @@
 import Img4 from "./img/iceAmericano.jpg"
 
-const Data = {
+const IceData = {
   productData: [
     {
       id: 1,
       img: "./images/아메리카노.jpg",
-      title: "아메리카노",
+      title: "아이스 아메리카노",
       desc: "",
       price: 4000,
       category: "Coffee",
@@ -13,7 +13,7 @@ const Data = {
     {
         id: 2,
         img: Img4,
-        title: "카페라떼",
+        title: "아이스 카페라떼",
         desc: "",
         price: 5000,
         category: "Coffee",
@@ -21,7 +21,7 @@ const Data = {
       {
         id: 3,
         img: Img4,
-        title: "에스프레소",
+        title: "아이스 에스프레소",
         desc: "",
         price: 4000,
         category: "Coffee",
@@ -29,7 +29,7 @@ const Data = {
       {
         id: 4,
         img: Img4,
-        title: "바닐라라떼",
+        title: "아이스 바닐라라떼",
         desc: "",
         price: 5000,
         category: "Coffee",
@@ -37,7 +37,7 @@ const Data = {
       {
         id: 5,
         img: Img4,
-        title: "유자차",
+        title: "아이스 유자차",
         desc: "",
         price: 4000,
         category: "Tea",
@@ -45,7 +45,7 @@ const Data = {
       {
           id: 6,
           img: Img4,
-          title: "허브티",
+          title: "아이스 허브티",
           desc: "",
           price: 5000,
           category: "Tea",
@@ -53,7 +53,7 @@ const Data = {
         {
           id: 7,
           img: Img4,
-          title: "캐모마일",
+          title: "아이스 캐모마일",
           desc: "",
           price: 4000,
           category: "Tea",
@@ -61,7 +61,7 @@ const Data = {
         {
           id: 8,
           img: Img4,
-          title: "홍차",
+          title: "아이스 홍차",
           desc: "",
           price: 5000,
           category: "Tea",
@@ -69,7 +69,7 @@ const Data = {
         {
             id: 9,
             img: Img4,
-            title: "카페라떼",
+            title: "아이스 카페라떼",
             desc: "",
             price: 5000,
             category: "Coffee",
@@ -77,4 +77,4 @@ const Data = {
           
   ],
 };
-export default Data;
+export default IceData;
