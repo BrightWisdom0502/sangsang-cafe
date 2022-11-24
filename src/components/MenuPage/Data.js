@@ -1,8 +1,5 @@
 import Img4 from "./img/iceAmericano.jpg"
 
-
-
-
 const Data = {
   productData: [
     {

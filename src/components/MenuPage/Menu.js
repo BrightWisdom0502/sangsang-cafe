@@ -5,10 +5,12 @@ import ItemCard from "./itemCard";
 import Data from "./Data.js";
 import {CartProvider} from "react-use-cart"
 import styled from "@emotion/styled"
+import SearchFilter from "react-filter-search"
 
 function App() {
   const [menutop, setMenutop] = useState("Coffee");
-  const [searchInput,setSearchInput] = useState('');
+  const [hotice, sethotice] = useState("Hot");
+  const [searchInput,setSearchInput] = useState("");
 
   const [filter, setFilter] = useState(Data.productData.filter(item => item.category === "Coffee"));
   const coffee = () => {
@@ -65,7 +67,7 @@ function App() {
       <h1 className="text-center mt-3">{menutop}</h1>
       <div style={{ width:"100%",overflow:"auto",display:"flex"}}>
         <div style={{display:"flex", overflow:"auto"}}>
-          {filter.map((item, index) => {
+          {/* {filter.map((item, index) => {
             return (
               <ItemCard
                 img={item.img}
@@ -77,7 +79,26 @@ function App() {
                 category={item.category}
               />
             );
-          })}
+          })} */}
+          <SearchFilter
+          value={searchInput}
+          data={filter}
+          renderResults={(results) => (
+            <div style={{display:"flex", overflow:"auto"}}>
+              {results.map((item, index) => (
+                <ItemCard
+                img={item.img}
+                desc={item.desc}
+                title={item.title}
+                price={item.price}
+                key={index}
+                item={item}
+                category={item.category}
+              />
+              ))}
+            </div>
+          )}
+        />
         </div>
       </div>
   
