@@ -2,7 +2,7 @@ import { React, useState, useSelector } from 'react';
 import Card from 'react-bootstrap/Card';
 import ListGroup from 'react-bootstrap/ListGroup';
 
-import  Edit  from './Edit';
+import  MenuForm, { values, handleChange, handleSubmit } from './MenuForm';
 
 
 const AdminMenuStyle = {
@@ -20,16 +20,10 @@ const ButtonStyle = {
 
 
 
-const MenuControl = () => {
-
-  const EditName = props => {
-    const [typedName, setTypedName] = useState("");
-    const [menuName, setMenuName] = useState("");
-    const saveChangedName = () => {
-      setMenuName(typedName);
-      setTypedName("");
-    };
-  }
+const MenuControl = ({init}) => {
+    <>
+    <MenuForm init = {init} />
+    </>
 
 
     return (
