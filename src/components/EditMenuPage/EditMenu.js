@@ -14,8 +14,8 @@ import coffee from "../../data/coffee.json";
 import desserts from "../../data/desserts.json";
 import tea from "../../data/tea.json";
 
-import MenuChange from "./MenuChange";
-import CategoryButton from "./CategoryButton";
+// import MenuChange from "./MenuChange";
+// import CategoryButton from "./CategoryButton";
 
 const ComponentStyle = {
   display: "flex",
