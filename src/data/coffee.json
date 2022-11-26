@@ -24,7 +24,7 @@
   {
     "id": 4,
     "img": "바닐라 라떼.jpg",
-    "title": "바닐라라떼",
+    "title": "바닐라 라떼",
     "desc": "",
     "price": 5000,
     "category": "Hot"
@@ -40,7 +40,7 @@
   {
     "id": 6,
     "img": "아이스 카페 라떼.jpg",
-    "title": "아이스 카페라떼",
+    "title": "아이스 카페 라떼",
     "desc": "",
     "price": 5000,
     "category": "Ice"
@@ -49,7 +49,7 @@
   {
     "id": 7,
     "img": "아이스 바닐라 라떼.jpg",
-    "title": "아이스 바닐라라떼",
+    "title": "아이스 바닐라 라떼",
     "desc": "",
     "price": 5000,
     "category": "Ice"

@@ -1,5 +1,6 @@
 import React from "react";
 import { useCart } from "react-use-cart";
+import { writeFileSync } from "fs";
 
 import order_list from "../../data/order_list.json";
 
@@ -31,8 +32,8 @@ function Cart(props) {
       "date": timestring,
       "products": items.map((item)=> {
         return (
-        item.title
-      )
+          item.title
+        )
       }),
       "cost": cartTotal
     })

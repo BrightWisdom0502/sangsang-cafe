@@ -51,43 +51,27 @@ const CategoryStyle = {
   borderColor: "#587558"
 }
 
-
-
-
-
 const EditMenu = (props) => {
-  
-
-
   return (
-
-
     <div id="EditMenu" style={ComponentStyle}>
-
-    
-      
       <div className="d-grid gap-2 d-md-block position-absolute">
         <nav>
-        <button className="btn btn-primary" type="button" style={CategoryStyle}>
-          <Nav.Link as={Link} to = "/Edit001" style={{color: "white"}}>beverage</Nav.Link>
-        </button>
-        <button className="btn btn-primary" type="button" style={CategoryStyle}>
-          <Nav.Link as={Link} to = "/Edit002" style={{color: "white"}}>coffee</Nav.Link>
-        </button>
-        <button className="btn btn-primary" type="button" style={CategoryStyle}>
-          <Nav.Link as={Link} to = "/Edit003" style={{color: "white"}}>desserts</Nav.Link>
-        </button>
-        <button className="btn btn-primary" type="button" style={CategoryStyle}>
-          <Nav.Link as={Link} to = "/Edit004" style={{color: "white"}}>tea</Nav.Link>
-        </button>
+          <button className="btn btn-primary" type="button" style={CategoryStyle}>
+            <Nav.Link as={Link} to = "/Edit001" style={{color: "white"}}>beverage</Nav.Link>
+          </button>
+          <button className="btn btn-primary" type="button" style={CategoryStyle}>
+            <Nav.Link as={Link} to = "/Edit002" style={{color: "white"}}>coffee</Nav.Link>
+          </button>
+          <button className="btn btn-primary" type="button" style={CategoryStyle}>
+            <Nav.Link as={Link} to = "/Edit003" style={{color: "white"}}>desserts</Nav.Link>
+          </button>
+          <button className="btn btn-primary" type="button" style={CategoryStyle}>
+            <Nav.Link as={Link} to = "/Edit004" style={{color: "white"}}>tea</Nav.Link>
+          </button>
         </nav>
       </div>
 
-
-
       <div className="row row-cols-1 row-cols-md-4 g-3" style={{ marginTop: '40px', marginLeft: '10px' , maxWidth: '60vw'}}>
-        
-        
         <div className="col">
           {
               beverage.map(function(n, i) {
@@ -97,7 +81,6 @@ const EditMenu = (props) => {
               })
           }
         </div>
-
         <Card className="card h-100" style={CardStyle}>
           <div className="col-md-4">
             <img src={'images/그린 티.jpg'} width="100%" />
@@ -107,23 +90,11 @@ const EditMenu = (props) => {
           </div>
         </Card>
 
-
-      
-
-
-      <div style={{ width: '30vh' , height: '80vh' , marginTop: '70px' ,marginLeft: '55vw', position: 'absolute'}}>
-        <MenuControl />
+        <div style={{ width: '30vh' , height: '80vh' , marginTop: '70px' ,marginLeft: '55vw', position: 'absolute'}}>
+          <MenuControl />
+        </div>
       </div>
-        
-
-    
-        <> 
-      <MenuCategory />
-      <Menus />
-        </>
     </div>
-    </div>
-
   );
 }
 
