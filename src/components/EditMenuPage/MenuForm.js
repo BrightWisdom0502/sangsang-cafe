@@ -34,6 +34,7 @@ const MenuForm = ({init}) => {
         return (
             <>
             <div className="md-input-group">
+                <label for="FormPrice" className="form-label">상품명</label>
                 <input 
                     type="text"  
                     id="menuName" 
@@ -51,6 +52,7 @@ const MenuForm = ({init}) => {
                   onChange={ handleChange }
                   />
                 </label>
+                
               </div>
         
               <div className="col-input-text-group">
