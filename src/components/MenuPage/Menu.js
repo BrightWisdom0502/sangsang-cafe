@@ -3,7 +3,6 @@ import Cart from './Cart';
 import React, { useState } from "react";
 import ItemCard from "./itemCard";
 //import Coffee from "./Coffee.js";
-import IceData from "./IceData";
 import {CartProvider} from "react-use-cart"
 import SearchFilter from "react-filter-search"
 import { Button, ToggleButton, ToggleButtonGroup } from 'react-bootstrap';
