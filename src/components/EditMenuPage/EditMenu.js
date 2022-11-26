@@ -1,5 +1,6 @@
-import { Route, Link } from "react-router-dom";
-import { React, useState, useSelector } from "react";
+import { Link } from "react-router-dom";
+import React, { useState } from "react";
+import { useSelector} from "react-redux";
 
 import Card from 'react-bootstrap/Card';
 import Button from 'react-bootstrap/Button';
@@ -14,8 +15,9 @@ import coffee from "../../data/coffee.json";
 import desserts from "../../data/desserts.json";
 import tea from "../../data/tea.json";
 
-// import MenuChange from "./MenuChange";
-// import CategoryButton from "./CategoryButton";
+import MenuChange from "./MenuChange";
+import MenuCard from "./MenuCard";
+
 
 const ComponentStyle = {
   display: "flex",
@@ -49,21 +51,14 @@ const CategoryStyle = {
 }
 
 
-const LinkStyle = {
-  color: "white",
-}
-
-
-
-
 
 
 
 const EditMenu = (props) => {
-
-  var [menuName, setMenuName] = React.useState(useSelector((state) => state.menuName));
-  var [menuPrice, setMenuPrice] = React.useState(useSelector((state) => state.menuPrice));
-  var [menuText, setMenuText] = React.useState(useSelector((state) => state.menuText));
+  
+  const [menuName, setMenuName] = React.useState(useSelector((state) => state.menuName));
+  const [menuPrice, setMenuPrice] = React.useState(useSelector((state) => state.menuPrice));
+  const [menuText, setMenuText] = React.useState(useSelector((state) => state.menuText));
 
   const updateData = async (e) => {
     e.preventDefault();
@@ -83,17 +78,26 @@ const EditMenu = (props) => {
 
       <div className="d-grid gap-2 d-md-block position-absolute">
         <nav>
-        <button className="btn btn-primary" type="button" style={CategoryStyle}  >beverage</button>
-        <button className="btn btn-primary" type="button" style={CategoryStyle}  >coffee</button>
-        <button className="btn btn-primary" type="button" style={CategoryStyle}  >desserts</button>
-        <button className="btn btn-primary" type="button" style={CategoryStyle}  >tea</button>
+        <button className="btn btn-primary" type="button" style={CategoryStyle}>
+          <Link to = "Edit001" style={{color: "white"}}>beverage</Link>
+        </button>
+        <button className="btn btn-primary" type="button" style={CategoryStyle}>
+          <Link to = "Edit001" style={{color: "white"}}>coffee</Link>
+        </button>
+        <button className="btn btn-primary" type="button" style={CategoryStyle}>
+          <Link to = "Edit001" style={{color: "white"}}>desserts</Link>
+        </button>
+        <button className="btn btn-primary" type="button" style={CategoryStyle}>
+          <Link to = "Edit001" style={{color: "white"}}>tea</Link>
+        </button>
         </nav>
       </div>
 
 
-      <Card className="row row-cols-1 row-cols-md-3 g-3" style={{ marginTop: '40px', marginLeft: '10px' , maxWidth: '60vw'}}>
+      <>
+      <div className="row row-cols-1 row-cols-md-3 g-3" style={{ marginTop: '40px', marginLeft: '10px' , maxWidth: '60vw'}}>
                 <div className="col" >
-                <div className="card h-100" style={CardStyle}>
+                <Card className="card h-100" style={CardStyle}>
                     <img src={ "그린 티.jpg" } className="card-img-top" alt="..." /> 
                     <div className="card-body">
                         <h5 className="card-title" type="text"  id="menuName" value={menuName} onChange={(e) => setMenuName(e.target.value)} />  
@@ -101,9 +105,10 @@ const EditMenu = (props) => {
                         <p className="card-text" type="text" id="FormText" value={menuText} onChange={(e) => setMenuText(e.target.value)} />
                     <a href="#" className="btn btn-outline stretched-link" style={ButtonStyle}>편집</a>
                     </div>
+                </Card>
                 </div>
-                </div>
-      </Card>
+      </div>
+      </>
 
       
 
