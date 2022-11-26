@@ -1,8 +1,74 @@
 [
-  {"name": "아메리카노", "price": "4000", "url": "/public/images/아메리카노.jpg"},
-  {"name": "카페 라떼", "price": "4500", "url": "/public/images/카페 라떼.jpg"},
-  {"name": "카푸치노", "price": "4500", "url": "/public/images/카푸치노.jpg"},
-  {"name": "카라멜 마키아또", "price": "5400", "url": "/public/images/카라멜 마키아또.jpg"},
-  {"name": "에스프레소", "price": "4000", "url": "/public/images/에스프레소.jpg"},
-  {"name": "아포카토", "price": "6000", "url": "/public/images/아포카토.jpg"}
+  {
+      "id": 1,
+      "img": "아메리카노.jpg",
+      "title": "아메리카노",
+      "desc": "",
+      "price": 4000,
+      "category": "Coffee"
+    },
+    {
+        "id": 2,
+        "img": "카페라떼.jpg",
+        "title": "카페라떼",
+        "desc": "",
+        "price": 5000,
+        "category": "Coffee"
+      },
+      {
+        "id": 3,
+        "img": "에스프레소.jpg",
+        "title": "에스프레소",
+        "desc": "",
+        "price": 4000,
+        "category": "Coffee"
+      },
+      {
+        "id": 4,
+        "img": "바닐라 라떼.jpg",
+        "title": "바닐라라떼",
+        "desc": "",
+        "price": 5000,
+        "category": "Coffee"
+      },
+      {
+        "id": 5,
+        "img": "얼 그레이 티.jpg",
+        "title": "얼그레이",
+        "desc": "",
+        "price": 4000,
+        "category": "Tea"
+      },
+      {
+          "id": 6,
+          "img": "그린 티.jpg",
+          "title": "허브티",
+          "desc": "",
+          "price": 5000,
+          "category": "Tea"
+        },
+        {
+          "id": 7,
+          "img": "캐모마일 티.jpg",
+          "title": "캐모마일",
+          "desc": "",
+          "price": 4000,
+          "category": "Tea"
+        },
+        {
+          "id": 8,
+          "img": "민트 티.jpg",
+          "title": "민트티",
+          "desc": "",
+          "price": 5000,
+          "category": "Tea"
+        },
+        {
+            "id": 9,
+            "img": "밀크 티.jpg",
+            "title": "밀크티",
+            "desc": "",
+            "price": 5000,
+            "category": "Coffee"
+          }
 ]

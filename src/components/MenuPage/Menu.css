@@ -1,0 +1,146 @@
+.search {
+    position: absolute;
+    width: 865px;
+    height: 60px;
+    left: 40px;
+    top: 120px;
+  }
+  .HotIce_Group {
+    position: absolute;
+    right: 10px;
+
+
+  }
+  .searchTerm {
+    position: absolute;
+    width: 630px;
+    height: 60px;
+    left: 50px;
+    top: 10px;
+  
+    font-family: 'Roboto';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 24px;
+    line-height: 28px;
+    padding-left: 30px;
+  
+    /* Grey 2 */
+  
+    background: #ececec;
+    border-radius: 15px;
+  }
+  .btn_category {
+    font-style: normal;
+    font-weight: bold;
+    font-size: 36px;
+    line-height: 152.3%;
+    color: white;
+  
+    position: relative;
+    width: 179px;
+    height: 70px;
+    border-radius: 30px;
+  
+    background: #737373;
+  }
+  .btn_group Button {
+    margin-right: 30px;
+
+  }
+  .btn_group Button:hover {
+    color:black;
+    background:#cbbcbc;
+    
+
+  }
+  
+  .BackGround {
+    position: relative;
+    width: 1600px;
+    height: 900px;
+    background-color: #a4d3a0;
+  }
+  .Kiosk {
+    position: absolute;
+    width: 1500px;
+    height: 800px;
+    left: 50px;
+    top: 56px;
+  
+    background: #f5f5f5;
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+    border-radius: 50px;
+  }
+  
+  .category {
+    position: absolute;
+    width: 865px;
+    height: 120px;
+    left: 45px;
+    top: 30px;
+  }
+  .cart {
+    position: absolute;
+    width: 480px;
+    height: 750px;
+    left: 1045px;
+    top: 75px;
+    border-radius: 30px;
+    background: #d9d9d9;
+  }
+  
+  .product_container{
+    display:flex;
+    flex-direction: row;
+    flex-wrap : wrap;
+    width: 100%;
+  }
+  .product{
+    margin-top: 4%;
+    width:33%;
+    height: 100%;
+    /* border: 1px solid black; */
+  }
+  .product_img_div{
+    text-align: center;
+  }
+  .product_img{
+    max-width:45%;
+    max-height:100%;
+  }
+  .product_title{
+    font-size : 1.3rem;
+    font-weight: 600;
+    margin : 4%;
+    text-align: center;
+  }
+  .product_price{
+    font-size : 1rem;
+    margin : 2% 3% 1% 4%;
+    text-align: center;
+  }
+  .product_link_div{
+    text-align: center;
+  }
+  .product_link{
+    position:inherit;
+    font-size : 1.2rem;
+    font-weight: 500;
+    text-decoration: none;
+    background : #0B5ED9;
+    color : white;
+    border-radius : 10px;
+    padding :5px;
+  }
+  .product_list {
+    position: absolute;
+    width: 900px;
+    height: 530px;
+    left: 50px;
+    bottom: 40px;
+    border-radius: 30px;
+    background: #d9d9d9;
+    overflow: hidden;
+  }
+  
