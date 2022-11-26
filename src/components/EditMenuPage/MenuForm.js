@@ -7,19 +7,20 @@ import tea from './tea';
 
 const MenuForm = ({init}) => {
 
-        let [menuName, setMenuName] = useState([ {beverage} ]);
-        let [menuPrice, setMenuPrice] = useState([ {beverage} ]);
+        const [menuName, setMenuName] = useState("");
+        const [savedName, setSavedName] = useState("");
+        
 
-        const ChangeMenuName = () => {
-          var newMenuName = [...menuName];
-          newMenuName(newMenuName);
-          setMenuName([beverage]);
-        }
+        const [menuPrice, setMenuPrice] = useState("");
+        const [savedPrice, setSavedPrice] = useState("");
+        
 
-        const ChangeMenuPrice = () => {
-          var newMenuPrice = [...menuPrice];
-          newMenuPrice[0] = ' ';
-          setMenuPrice([beverage]);
+        const saveChange = () => {
+          setSavedName(menuName);
+          setMenuName("");
+
+          setSavedPrice(menuPrice);
+          setMenuPrice("");
         }
 
 
@@ -55,31 +56,38 @@ const MenuForm = ({init}) => {
             <>
             <div className="md-input-group">
                 <label for="FormPrice" className="form-label">상품명</label>
+                <div>
                 <input 
                     type="text"  
                     id="menuName" 
-                    value={values.menuName}
-                    onChange={ handleChange }
+                    value={menuName} placeholder={savedName}
+                    onChange={e => setMenuName(e.target.value)}
                     />
+                </div>
             </div>
 
             <div className="input-group">
-                <label for="FormPrice" className="form-label">가격
+                <label for="FormPrice" className="form-label">가격</label>
+                <div>
                 <input 
                   type="number" 
                   id="menuPrice" 
-                  value={values.menuPrice}
-                  onChange={ handleChange }
+                  value={menuPrice} placeholder={savedPrice}
+                  onChange={e => setMenuPrice(e.target.value)}
                   />
-                </label>
+                </div>
                 
               </div>
         
               
 
               <div className="col-12">
-                <button type="submit" className="btn btn-primary" style={ButtonStyle}>수정</button>
+                <button type="submit" className="btn btn-primary" style={ButtonStyle} onClick={saveChange}>수정</button>
               </div>
+
+              <hr />
+              <h5>수정된 상품명: {savedName}</h5>
+              <h5>수정된 가격: {savedPrice} 원</h5>
             
 
             </>
