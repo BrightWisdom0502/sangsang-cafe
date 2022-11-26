@@ -1,6 +1,9 @@
 import React from "react";
 import { useCart } from "react-use-cart";
 
+import order_list from "../../data/order_list.json";
+
+
 function Cart(props) {
   const {
     isEmpty,
@@ -12,6 +15,28 @@ function Cart(props) {
     removeItem,
     emptyCart,
   } = useCart();
+  let today = new Date();
+  let time = {
+    year: today.getFullYear(),  //현재 년도
+    month: today.getMonth() + 1, // 현재 월
+    date: today.getDate(), // 현제 날짜
+    hours: today.getHours(), //현재 시간
+    minutes: today.getMinutes(), //
+  }
+  
+  let timestring = `${time.year}-${time.month}-${time.date} ${time.hours}:${time.minutes}`;
+
+  const submitOrder = () => {
+    order_list.push({
+      "date": timestring,
+      "products": items.map((item)=> {
+        return (
+        item.title
+      )
+      }),
+      "cost": cartTotal
+    })
+  }
   if (isEmpty) {
     return <h1 className="text-center">상품을 선택하십시오.</h1>;
   }
@@ -24,11 +49,11 @@ function Cart(props) {
           </h5>
           <table className="table table-light table-hover m-0">
             <thead>
-                <td></td>
-                <td>상품</td>
-                <td>수량</td>
-                <td>가격</td>
-                <td></td>
+              <td></td>
+              <td>상품</td>
+              <td>수량</td>
+              <td>가격</td>
+              <td></td>
             </thead>
             <tbody>
               {items.map((item, index) => {
@@ -39,7 +64,7 @@ function Cart(props) {
                     </td>
                     <td>{item.title}</td>
                     <td>x {item.quantity}</td>
-                    <td>{item.price*item.quantity}₩</td>
+                    <td>{item.price * item.quantity}₩</td>
                     <td>
                       <button
                         onClick={() =>
@@ -74,7 +99,7 @@ function Cart(props) {
           <button className="btn btn-danger m-2" onClick={() => emptyCart()}>
             장바구니 비우기
           </button>
-          <button className="btn btn-primary m-2">결제 하기</button>
+          <button className="btn btn-primary m-2" onClick={() => submitOrder()}>결제 하기</button>
         </div>
       </div>
     </section>
