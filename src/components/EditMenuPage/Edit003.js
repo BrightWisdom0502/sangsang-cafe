@@ -3,7 +3,7 @@ import { useState, useSelector } from "react";
 
 import Card from 'react-bootstrap/Card';
 
-import desserts from './data/desserts';
+import desserts from './desserts';
 import EditData from './EditData';
 
 
