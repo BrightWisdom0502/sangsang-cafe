@@ -1,7 +1,7 @@
-import beverage from './data/beverage';
-import coffee from './data/coffee';
-import desserts from './data/desserts';
-import tea from './data/tea';
+import beverage from './beverage';
+import coffee from './coffee';
+import desserts from './desserts';
+import tea from './tea';
 
 import Card from 'react-bootstrap/Card';
 
