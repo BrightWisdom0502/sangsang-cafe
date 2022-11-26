@@ -1,4 +1,11 @@
 import { useLocation, Link, NavLink } from "react-router-dom";
+import { useState, useSelector } from "react";
+
+import Card from 'react-bootstrap/Card';
+
+import desserts from './data/desserts';
+import EditData from './EditData';
+
 
 
 const CardStyle = {
@@ -15,78 +22,96 @@ const ButtonStyle = {
 
 }
 
-const Edit003 = () => {
+function Edit003(props) {
+
+  let [menuName, setMenuName] = useState(useSelector((state) => state.menuName));
+  let [menuPrice, setMenuPrice] = useState(useSelector((state) => state.menuPrice));
+
+  const updateData = async (e) => {
+    e.preventDefault();
+    var data = {menuName, menuPrice};
+    props.props();
+  }
+
   return (
-      <div class="row row-cols-1 row-cols-md-3 g-3" style={{ marginTop: '40px', marginLeft: '10px' , maxWidth: '60vw'}}>
-        <div class="col" style={CardStyle}>
-          <div class="card h-100">
-            <img src="images/베이글.jpg" class="card-img-top" alt="..." /> 
-            <div class="card-body">
-              <h5 class="card-title">베이글 3000\</h5>
-              <p class="card-text">메뉴 설명</p>
-              <a href="#" class="btn btn-outline" style={ButtonStyle}>편집</a>
+    <div>
+    
+
+    <div className="row row-cols-1 row-cols-md-3 g-3" style={{ marginTop: '40px', marginLeft: '10px' , maxWidth: '60vw'}}>
+        <div className="col" >
+
+          <Card className="card h-100" style={CardStyle}>
+            <img src={ 'images/' + [props.i +1] +'.jpg' } className="card-img-top" alt="..." /> 
+              <div className="card-body">
+                <h5 className="card-title" type="text"  id="menuName" value={menuName} onChange={(e) => setMenuName(e.target.value)}>
+                  {props.desserts['name']}
+                </h5> 
+                <p className="card-text" type="number" id="menuPrice" value={menuPrice} onChange={(e) => setMenuPrice(e.target.value)} 원 >
+                  {props.desserts['price']} 원
+                </p>
+              <a href="#" className="btn btn-outline stretched-link" style={ButtonStyle}>편집</a>
             </div>
-          </div>
-        </div>
+          </Card>
 
-        <div class="col" style={CardStyle}>
-          <div class="card h-100">
-            <img src="images/스콘.jpg" class="card-img-top" alt="..." />
-            <div class="card-body">
-              <h5 class="card-title">스콘 3500</h5>
-              <p class="card-text">메뉴 설명</p>
-              <a href="#" class="btn btn-outline" style={ButtonStyle}>편집</a>
+          <Card className="card h-100" style={CardStyle}>
+            <img src={ 'images/' + [props.i +1] +'.jpg' } className="card-img-top" alt="..." /> 
+              <div className="card-body">
+                <h5 className="card-title" type="text"  id="menuName" value={menuName} onChange={(e) => setMenuName(e.target.value)}>
+                  {props.desserts['name']}
+                </h5> 
+                <p className="card-text" type="number" id="menuPrice" value={menuPrice} onChange={(e) => setMenuPrice(e.target.value)} 원 >
+                  {props.desserts['price']} 원
+                </p>
+              <a href="#" className="btn btn-outline stretched-link" style={ButtonStyle}>편집</a>
             </div>
-          </div>
-        </div>
+          </Card>
 
-        <div class="col" style={CardStyle}>
-          <div class="card h-100">
-            <img src="images/크루아상.jpg" class="card-img-top" alt="..." />
-            <div class="card-body">
-              <h5 class="card-title">크루아상 4000</h5>
-              <p class="card-text">메뉴 설명</p>
-              <a href="#" class="btn btn-outline" style={ButtonStyle}>편집</a>
+          <Card className="card h-100" style={CardStyle}>
+            <img src={ 'images/' + [props.i +1] +'.jpg' } className="card-img-top" alt="..." /> 
+              <div className="card-body">
+                <h5 className="card-title" type="text"  id="menuName" value={menuName} onChange={(e) => setMenuName(e.target.value)}>
+                  {props.desserts['name']}
+                </h5> 
+                <p className="card-text" type="number" id="menuPrice" value={menuPrice} onChange={(e) => setMenuPrice(e.target.value)} 원 >
+                  {props.desserts['price']} 원
+                </p>
+              <a href="#" className="btn btn-outline stretched-link" style={ButtonStyle}>편집</a>
             </div>
-          </div>
-        </div>
+          </Card>
 
-        <div class="col" style={CardStyle}>
-          <div class="card h-100">
-            <img src="images/초콜릿 칩 쿠키.jpg" class="card-img-top" alt="..." />
-            <div class="card-body">
-              <h5 class="card-title">초콜릿 칩 쿠키 2800</h5>
-              <p class="card-text">메뉴 설명</p>
-              <a href="#" class="btn btn-outline" style={ButtonStyle}>편집</a>
+          <Card className="card h-100" style={CardStyle}>
+            <img src={ 'images/' + [props.i +1] +'.jpg' } className="card-img-top" alt="..." /> 
+              <div className="card-body">
+                <h5 className="card-title" type="text"  id="menuName" value={menuName} onChange={(e) => setMenuName(e.target.value)}>
+                  {props.desserts['name']}
+                </h5> 
+                <p className="card-text" type="number" id="menuPrice" value={menuPrice} onChange={(e) => setMenuPrice(e.target.value)} 원 >
+                  {props.desserts['price']} 원
+                </p>
+              <a href="#" className="btn btn-outline stretched-link" style={ButtonStyle}>편집</a>
             </div>
-          </div>
-        </div>
+          </Card>
 
-        <div class="col" style={CardStyle}>
-          <div class="card h-100">
-            <img src="images/초콜릿 케이크.jpg" class="card-img-top" alt="..." />
-            <div class="card-body">
-              <h5 class="card-title">초콜릿 케이크 6000</h5>
-              <p class="card-text">메뉴 설명</p>
-              <a href="#" class="btn btn-outline" style={ButtonStyle}>편집</a>
+          <Card className="card h-100" style={CardStyle}>
+            <img src={ 'images/' + [props.i +1] +'.jpg' } className="card-img-top" alt="..." /> 
+              <div className="card-body">
+                <h5 className="card-title" type="text"  id="menuName" value={menuName} onChange={(e) => setMenuName(e.target.value)}>
+                  {props.desserts['name']}
+                </h5> 
+                <p className="card-text" type="number" id="menuPrice" value={menuPrice} onChange={(e) => setMenuPrice(e.target.value)} 원 >
+                  {props.desserts['price']} 원
+                </p>
+              <a href="#" className="btn btn-outline stretched-link" style={ButtonStyle}>편집</a>
             </div>
-          </div>
+          </Card>
+
         </div>
-
-        <div class="col" style={CardStyle}>
-          <div class="card h-100">
-            <img src="images/치즈 케이크.jpg" class="card-img-top" alt="..." />
-            <div class="card-body">
-              <h5 class="card-title">치즈 케이크 5500</h5>
-              <p class="card-text">메뉴 설명</p>
-              <a href="#" class="btn btn-outline" style={ButtonStyle}>편집</a>
-            </div>
-          </div>
-        </div>
+    </div>
+    </div>
+    
 
 
 
-      </div>
 
       
     
