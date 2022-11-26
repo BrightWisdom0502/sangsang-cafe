@@ -3,8 +3,7 @@ import { useState, useSelector } from "react";
 
 import Card from 'react-bootstrap/Card';
 
-import beverage from './tea';
-import EditData from './EditData';
+import tea from './tea';
 
 
 const CardStyle = {
@@ -37,75 +36,16 @@ function Edit004(props) {
     
 
     <div className="row row-cols-1 row-cols-md-3 g-3" style={{ marginTop: '40px', marginLeft: '10px' , maxWidth: '60vw'}}>
-        <div className="col" >
-
           <Card className="card h-100" style={CardStyle}>
-            <img src={ 'images/' + [props.i +1] +'.jpg' } className="card-img-top" alt="..." /> 
-              <div className="card-body">
-                <h5 className="card-title" type="text"  id="menuName" value={menuName} onChange={(e) => setMenuName(e.target.value)}>
-                  {props.tea['name']}
-                </h5> 
-                <p className="card-text" type="number" id="menuPrice" value={menuPrice} onChange={(e) => setMenuPrice(e.target.value)} 원 >
-                  {props.tea['price']} 원
-                </p>
-              <a href="#" className="btn btn-outline stretched-link" style={ButtonStyle}>편집</a>
+            <div className="col-md-4">
+              <img src={'images/' + [props.i + 1] + '.jpg'} width="100%" />
+              <h3> {props.tea['title']} </h3>
+              <p> {props.tea['content']} & {props.tea['price']}</p>
             </div>
-          </Card>
-
-          <Card className="card h-100" style={CardStyle}>
-            <img src={ 'images/' + [props.i +1] +'.jpg' } className="card-img-top" alt="..." /> 
-              <div className="card-body">
-                <h5 className="card-title" type="text"  id="menuName" value={menuName} onChange={(e) => setMenuName(e.target.value)}>
-                  {props.tea['name']}
-                </h5> 
-                <p className="card-text" type="number" id="menuPrice" value={menuPrice} onChange={(e) => setMenuPrice(e.target.value)} 원 >
-                  {props.tea['price']} 원
-                </p>
-              <a href="#" className="btn btn-outline stretched-link" style={ButtonStyle}>편집</a>
-            </div>
-          </Card>
-
-          <Card className="card h-100" style={CardStyle}>
-            <img src={ 'images/' + [props.i +1] +'.jpg' } className="card-img-top" alt="..." /> 
-              <div className="card-body">
-                <h5 className="card-title" type="text"  id="menuName" value={menuName} onChange={(e) => setMenuName(e.target.value)}>
-                  {props.tea['name']}
-                </h5> 
-                <p className="card-text" type="number" id="menuPrice" value={menuPrice} onChange={(e) => setMenuPrice(e.target.value)} 원 >
-                  {props.tea['price']} 원
-                </p>
-              <a href="#" className="btn btn-outline stretched-link" style={ButtonStyle}>편집</a>
-            </div>
-          </Card>
-
-          <Card className="card h-100" style={CardStyle}>
-            <img src={ 'images/' + [props.i +1] +'.jpg' } className="card-img-top" alt="..." /> 
-              <div className="card-body">
-                <h5 className="card-title" type="text"  id="menuName" value={menuName} onChange={(e) => setMenuName(e.target.value)}>
-                  {props.tea['name']}
-                </h5> 
-                <p className="card-text" type="number" id="menuPrice" value={menuPrice} onChange={(e) => setMenuPrice(e.target.value)} 원 >
-                  {props.tea['price']} 원
-                </p>
-              <a href="#" className="btn btn-outline stretched-link" style={ButtonStyle}>편집</a>
-            </div>
-          </Card>
-
-          <Card className="card h-100" style={CardStyle}>
-            <img src={ 'images/' + [props.i +1] +'.jpg' } className="card-img-top" alt="..." /> 
-              <div className="card-body">
-                <h5 className="card-title" type="text"  id="menuName" value={menuName} onChange={(e) => setMenuName(e.target.value)}>
-                  {props.tea['name']}
-                </h5> 
-                <p className="card-text" type="number" id="menuPrice" value={menuPrice} onChange={(e) => setMenuPrice(e.target.value)} 원 >
-                  {props.tea['price']} 원
-                </p>
-              <a href="#" className="btn btn-outline stretched-link" style={ButtonStyle}>편집</a>
-            </div>
+            <a href="#" className="btn btn-outline stretched-link" style={ButtonStyle}>편집</a>
           </Card>
 
         </div>
-    </div>
     </div>
     
 
