@@ -1,5 +1,23 @@
 [
-  {"id":1,"title": "녹차 라떼", "price": "5500", "img": "녹차 라떼.jpg", "category":"Hot"},
-  {"id":2,"title": "핫 초콜릿", "price": "5000", "img": "핫 초콜릿.jpg", "category":"Hot"},
-  {"id":3,"title": "아이스 초콜릿", "price": "5300", "img": "아이스 초콜릿.jpg", "category":"Ice"}
-] 
+  {
+    "id": 1,
+    "img": "녹차 라떼.jpg",
+    "title": "녹차 라떼",
+    "price": "5500",
+    "category": "Hot"
+  },
+  {
+    "id": 2,
+    "img": "핫 초콜릿.jpg",
+    "title": "핫 초콜릿",
+    "price": "5000",
+    "category": "Hot"
+  },
+  {
+    "id": 3,
+    "img": "아이스 초콜릿.jpg",
+    "title": "아이스 초콜릿",
+    "price": "5300",
+    "category": "Ice"
+  }
+]

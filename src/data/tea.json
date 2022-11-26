@@ -1,5 +1,4 @@
 [
-  
   {
     "id": 1,
     "img": "얼 그레이 티.jpg",
@@ -8,34 +7,34 @@
     "category": "Hot"
   },
   {
-      "id": 2,
-      "img": "그린 티.jpg",
-      "title": "허브티",
-      "price": 5000,
-      "category": "Hot"
-    },
-    {
-      "id": 3,
-      "img": "캐모마일 티.jpg",
-      "title": "캐모마일",
-      "price": 4000,
-      "category": "Hot"
-    },
-    {
-      "id": 4,
-      "img": "민트 티.jpg",
-      "title": "민트티",
-      "price": 5000,
-      "category": "Hot"
-    },
-    {
-        "id": 5,
-        "img": "밀크 티.jpg",
-        "title": "밀크티",
-        "price": 5000,
-        "category": "Hot"
-      }
-  ,{
+    "id": 2,
+    "img": "그린 티.jpg",
+    "title": "허브티",
+    "price": 5000,
+    "category": "Hot"
+  },
+  {
+    "id": 3,
+    "img": "캐모마일 티.jpg",
+    "title": "캐모마일",
+    "price": 4000,
+    "category": "Hot"
+  },
+  {
+    "id": 4,
+    "img": "민트 티.jpg",
+    "title": "민트티",
+    "price": 5000,
+    "category": "Hot"
+  },
+  {
+    "id": 5,
+    "img": "밀크 티.jpg",
+    "title": "밀크티",
+    "price": 5000,
+    "category": "Hot"
+  },
+  {
     "id": 10,
     "img": "아이스 얼 그레이 티.jpg",
     "title": "아이스 얼그레이",
@@ -43,31 +42,31 @@
     "category": "Ice"
   },
   {
-      "id": 6,
-      "img": "아이스 그린 티.jpg",
-      "title": "아이스 허브티",
-      "price": 5000,
-      "category": "Ice"
-    },
-    {
-      "id": 7,
-      "img": "아이스 캐모마일 티.jpg",
-      "title": "아이스 캐모마일",
-      "price": 4000,
-      "category": "Ice"
-    },
-    {
-      "id": 8,
-      "img": "아이스 민트 티.jpg",
-      "title": "아이스 민트티",
-      "price": 5000,
-      "category": "Ice"
-    },
-    {
-        "id": 9,
-        "img": "아이스 밀크 티.jpg",
-        "title": "아이스 밀크티",
-        "price": 5000,
-        "category": "Ice"
-      }
+    "id": 6,
+    "img": "아이스 그린 티.jpg",
+    "title": "아이스 허브티",
+    "price": 5000,
+    "category": "Ice"
+  },
+  {
+    "id": 7,
+    "img": "아이스 캐모마일 티.jpg",
+    "title": "아이스 캐모마일",
+    "price": 4000,
+    "category": "Ice"
+  },
+  {
+    "id": 8,
+    "img": "아이스 민트 티.jpg",
+    "title": "아이스 민트티",
+    "price": 5000,
+    "category": "Ice"
+  },
+  {
+    "id": 9,
+    "img": "아이스 밀크 티.jpg",
+    "title": "아이스 밀크티",
+    "price": 5000,
+    "category": "Ice"
+  }
 ]

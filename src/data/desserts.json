@@ -1,8 +1,44 @@
 [
-  {"id":1, "title": "베이글", "price": "3000", "img": "베이글.jpg", "category": "Hot"},
-  {"id":2, "title": "스콘", "price": "3500", "img": "스콘.jpg", "category": "Hot"},
-  {"id":3, "title": "크루아상", "price": "4000", "img": "크루아상.jpg", "category": "Hot"},
-  {"id":4, "title": "초콜릿 칩 쿠키", "price": "2800", "img": "초콜릿 칩 쿠키.jpg", "category": "Hot"},
-  {"id":5, "title": "초콜릿 케이크", "price": "6000", "img": "초콜릿 케이크.jpg", "category": "Hot"},
-  {"id":6, "title": "치즈 케이크", "price": "5500", "img": "치즈 케이크.jpg", "category": "Hot"}
+  {
+    "id": 1,
+    "img": "베이글.jpg",
+    "title": "베이글",
+    "price": "3000",
+    "category": "Hot"
+  },
+  {
+    "id": 2,
+    "img": "스콘.jpg",
+    "title": "스콘",
+    "price": "3500",
+    "category": "Hot"
+  },
+  {
+    "id": 3,
+    "img": "크루아상.jpg",
+    "title": "크루아상",
+    "price": "4000",
+    "category": "Hot"
+  },
+  {
+    "id": 4,
+    "img": "초콜릿 칩 쿠키.jpg",
+    "title": "초콜릿 칩 쿠키",
+    "price": "2800",
+    "category": "Hot"
+  },
+  {
+    "id": 5,
+    "img": "초콜릿 케이크.jpg",
+    "title": "초콜릿 케이크",
+    "price": "6000",
+    "category": "Hot"
+  },
+  {
+    "id": 6,
+    "img": "치즈 케이크.jpg",
+    "title": "치즈 케이크",
+    "price": "5500",
+    "category": "Hot"
+  }
 ]
