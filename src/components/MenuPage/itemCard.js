@@ -12,7 +12,7 @@ function CardItem(props) {
         <Card.Body className="text-center">
           <Card.Title>{props.title}</Card.Title>
           <Card.Title>{props.price} ₩</Card.Title>
-          <Card.Text>{props.desc}</Card.Text>
+          {/* <Card.Text>{props.desc}</Card.Text> */}
           <button
             className="btn btn-success"
             onClick={() => addItem(props.item)}

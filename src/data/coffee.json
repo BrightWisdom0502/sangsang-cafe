@@ -3,17 +3,15 @@
       "id": 1,
       "img": "아메리카노.jpg",
       "title": "아메리카노",
-      "desc": "",
       "price": 4000,
-      "category": "Coffee"
+      "category": "Hot"
     },
     {
         "id": 2,
         "img": "카페라떼.jpg",
         "title": "카페라떼",
-        "desc": "",
         "price": 5000,
-        "category": "Coffee"
+        "category": "Hot"
       },
       {
         "id": 3,
@@ -21,7 +19,7 @@
         "title": "에스프레소",
         "desc": "",
         "price": 4000,
-        "category": "Coffee"
+        "category": "Hot"
       },
       {
         "id": 4,
@@ -29,46 +27,32 @@
         "title": "바닐라라떼",
         "desc": "",
         "price": 5000,
-        "category": "Coffee"
+        "category": "Hot"
       },
       {
         "id": 5,
-        "img": "얼 그레이 티.jpg",
-        "title": "얼그레이",
+        "img": "아이스 아메리카노.jpg",
+        "title": "아이스 아메리카노",
         "desc": "",
         "price": 4000,
-        "category": "Tea"
+        "category": "Ice"
       },
       {
           "id": 6,
-          "img": "그린 티.jpg",
-          "title": "허브티",
+          "img": "아이스 카페 라떼.jpg",
+          "title": "아이스 카페라떼",
           "desc": "",
           "price": 5000,
-          "category": "Tea"
+          "category": "Ice"
         },
+        
         {
           "id": 7,
-          "img": "캐모마일 티.jpg",
-          "title": "캐모마일",
-          "desc": "",
-          "price": 4000,
-          "category": "Tea"
-        },
-        {
-          "id": 8,
-          "img": "민트 티.jpg",
-          "title": "민트티",
+          "img": "아이스 바닐라 라떼.jpg",
+          "title": "아이스 바닐라라떼",
           "desc": "",
           "price": 5000,
-          "category": "Tea"
-        },
-        {
-            "id": 9,
-            "img": "밀크 티.jpg",
-            "title": "밀크티",
-            "desc": "",
-            "price": 5000,
-            "category": "Coffee"
-          }
+          "category": "Ice"
+        }
+      
 ]
