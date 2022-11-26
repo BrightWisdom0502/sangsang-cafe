@@ -1,9 +1,8 @@
-import { React, useState, useSelector } from 'react';
+import { React, useState } from 'react';
+import { useSelector } from 'react-redux';
 import Card from 'react-bootstrap/Card';
-import ListGroup from 'react-bootstrap/ListGroup';
 
 import  MenuForm from './MenuForm';
-
 
 const AdminMenuStyle = {
   position : "absolute",
@@ -36,7 +35,7 @@ const MenuControl = ({init}) => {
 
             <form action="" className="EditCard">
               <>
-              { MenuForm }
+              <MenuForm />
               </>
             </form>
           </div>
