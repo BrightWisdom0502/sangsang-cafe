@@ -1,6 +1,6 @@
 import { Link } from "react-router-dom";
 import React, { useState } from "react";
-import { useSelector} from "react-redux";
+import { useSelector } from "react-redux";
 
 import Card from 'react-bootstrap/Card';
 import Button from 'react-bootstrap/Button';
@@ -15,8 +15,8 @@ import coffee from "../../data/coffee.json";
 import desserts from "../../data/desserts.json";
 import tea from "../../data/tea.json";
 
-import MenuChange from "./MenuChange";
-import MenuCard from "./MenuCard";
+// import MenuChange from "./MenuChange";
+// import MenuCard from "./MenuCard";
 
 
 const ComponentStyle = {
