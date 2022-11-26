@@ -1,12 +1,31 @@
 import React, { useState } from 'react'
 
+import beverage from './beverage';
+import coffee from './coffee';
+import desserts from './desserts';
+import tea from './tea';
+
 const MenuForm = ({init}) => {
 
-    
+        let [menuName, setMenuName] = useState([ {beverage} ]);
+        let [menuPrice, setMenuPrice] = useState([ {beverage} ]);
+
+        const ChangeMenuName = () => {
+          var newMenuName = [...menuName];
+          newMenuName(newMenuName);
+          setMenuName([beverage]);
+        }
+
+        const ChangeMenuPrice = () => {
+          var newMenuPrice = [...menuPrice];
+          newMenuPrice[0] = ' ';
+          setMenuPrice([beverage]);
+        }
+
+
         const [values, setValues] = useState({
             menuName: "",
             menuPrice: "",
-            menuText: "",
         })
 
         const handleChange = e => {
@@ -24,6 +43,7 @@ const MenuForm = ({init}) => {
         const ButtonStyle = {
             textAlign: "center",
             height: "35px",
+            backgroundColor: "#587558",
             borderColor: "#587558" , 
             marginBottom: "20px"
           
@@ -55,15 +75,7 @@ const MenuForm = ({init}) => {
                 
               </div>
         
-              <div className="col-input-text-group">
-                <label for="FormText" className="form-label">상품설명</label>
-                <input 
-                  type="text" 
-                  id="FormText" 
-                  value={values.menuText}
-                  onChange={ handleChange }
-                  />
-              </div>
+              
 
               <div className="col-12">
                 <button type="submit" className="btn btn-primary" style={ButtonStyle}>수정</button>
