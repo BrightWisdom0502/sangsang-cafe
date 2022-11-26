@@ -46,16 +46,16 @@ const OrderDetails = ({ currentOrder }) => {
     let price = 0;
     
     beverage.map(data => {
-      if (data.name === menu) price = data.price;
+      if (data.title === menu) price = data.price;
     });
     coffee.map(data => {
-      if (data.name === menu) price = data.price;
+      if (data.title === menu) price = data.price;
     });
     desserts.map(data => {
-      if (data.name === menu) price = data.price;
+      if (data.title === menu) price = data.price;
     });
     tea.map(data => {
-      if (data.name === menu) price = data.price;
+      if (data.title === menu) price = data.price;
     });
 
     if (currentOrderInfo.length <= 0) {
