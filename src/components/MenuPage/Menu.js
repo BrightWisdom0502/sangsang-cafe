@@ -1,17 +1,27 @@
 import './Menu.css';
 import Cart from './Cart';
 import React, { useState } from "react";
+import { Link } from "react-router-dom";
 import ItemCard from "./itemCard";
-//import Coffee from "./Coffee.js";
-import IceData from "./IceData";
 import {CartProvider} from "react-use-cart"
 import SearchFilter from "react-filter-search"
 import { Button, ToggleButton, ToggleButtonGroup } from 'react-bootstrap';
+import { AiFillHome } from "react-icons/ai";
 
 import Coffee from "../../data/coffee.json";
 import Drink from "../../data/beverage.json";
 import Desserts from "../../data/desserts.json";
 import Tea from "../../data/tea.json";
+
+const buttonStyle = {
+  width: "100px",
+  marginRight: "30px",
+  textAlign: "center"
+}
+
+const buttonIconStyle = {
+  fontSize: "50px"
+}
 
 function App() {
   const [menutop, setMenutop] = useState("커피");
@@ -61,93 +71,70 @@ function App() {
   }
 
   console.log(Data, "data");
-
-  
   
   return (
-    <div  className='BackGround'>
+    <div className='BackGround'>
       <CartProvider>
-      <div className='Kiosk'>
-        <div class="search">
-          <form>
-            <input value={searchInput} placeholder="메뉴를 검색하시오" class="searchTerm" aria-label="Search through site content" onChange={(e)=> setSearchInput(e.target.value)}/>
-          </form>
-          <div className='HotIce_Group'>
-            <ToggleButtonGroup size="lg" type="radio" name="options" defaultValue={1}>
-              <ToggleButton id="tbg-radio-1" variant="danger" value={1} onClick={() => ToHot()}> Hot </ToggleButton>
-              <ToggleButton id="tbg-radio-2" variant="primary" value={2} onClick={() => ToIce()}> Ice </ToggleButton>
-            </ToggleButtonGroup>
-            
-          </div>
-        </div>
-      
-          <div className='category'>
-            
-            <div className='btn_group' role="group" aria-label="Basic mixed styles example">
-              <button type="button" className="btn_category" onClick={()=>coffee()}>커피</button>
-              <button type="button" className="btn_category" onClick={()=>tea()}>차</button>
-              <button type="button" className="btn_category" onClick={()=>drink()}>음료</button>
-              <button type="button" className="btn_category" onClick={()=>dessert()}>디저트</button>
+        <div className='Kiosk'>
+          <div className='menu-part'>
+            <div className='category'>
+              <div className='btn_group' role="group" aria-label="Basic mixed styles example">
+                <Button variant="outline-dark" style={buttonStyle}>
+                  <Link style={{color: "inherit", textDecoration: "inherit"}} to="/"><AiFillHome style={buttonIconStyle} /></Link>
+                  {/* <AiFillHome style={{fontSize: "50px"}} /> */}
+                </Button>
+                <button type="button" className="btn_category" onClick={() => coffee()}>커피</button>
+                <button type="button" className="btn_category" onClick={() => tea()}>차</button>
+                <button type="button" className="btn_category" onClick={() => drink()}>음료</button>
+                <button type="button" className="btn_category" onClick={() => dessert()}>디저트</button>
+              </div>
+            </div>
+            <div class="search">
+              <form>
+                <input value={searchInput} placeholder="메뉴를 검색하시오" class="searchTerm" aria-label="Search through site content" onChange={(e) => setSearchInput(e.target.value)} />
+              </form>
+              <div className='HotIce_Group'>
+                <ToggleButtonGroup size="lg" type="radio" name="options" defaultValue={1}>
+                  <ToggleButton id="tbg-radio-1" variant="danger" value={1} onClick={() => ToHot()}> Hot </ToggleButton>
+                  <ToggleButton id="tbg-radio-2" variant="primary" value={2} onClick={() => ToIce()}> Ice </ToggleButton>
+                </ToggleButtonGroup>
+              </div>
+            </div>
+            <div className="product_list">
+              <h1 className="text-center mt-3">{menutop}</h1>
+              <div className='menus' style={{ width: "100%", overflow: "auto", display: "flex" }}>
+                <div style={{ display: "flex", overflow: "auto" }}>
+                  <SearchFilter
+                    value={searchInput}
+                    data={filter}
+                    renderResults={(results) => (
+                      <div style={{ display: "flex", overflow: "auto" }}>
+                        {results.map((item, index) => (
+                          <ItemCard
+                            img={item.img}
+                            desc={item.desc}
+                            title={item.title}
+                            price={item.price}
+                            key={index}
+                            item={item}
+                            category={item.category}
+                          />
+                        ))}
+                      </div>
+                    )}
+                  />
+                </div>
+              </div>
             </div>
           </div>
-          
-        
-
-        <div className="product_list">
-        
-      <h1 className="text-center mt-3">{menutop}</h1>
-      <div style={{ width:"100%",overflow:"auto",display:"flex"}}>
-        <div style={{display:"flex", overflow:"auto"}}>
-          {/* {filter.map((item, index) => {
-            return (
-              <ItemCard
-                img={item.img}
-                desc={item.desc}
-                title={item.title}
-                price={item.price}
-                key={index}
-                item={item}
-                category={item.category}
-              />
-            );
-          })} */}
-          <SearchFilter
-          value={searchInput}
-          data={filter}
-          renderResults={(results) => (
-            <div style={{display:"flex", overflow:"auto"}}>
-              {results.map((item, index) => (
-                <ItemCard
-                img={item.img}
-                desc={item.desc}
-                title={item.title}
-                price={item.price}
-                key={index}
-                item={item}
-                category={item.category}
-              />
-              ))}
+          <div className='cart-part'>
+            <div class="cart">
+              <Cart />
             </div>
-          )}
-        />
+          </div>
         </div>
-      </div>
-  
-          
-        </div>
-        
-      </div>
-
-
-
-        <div class="cart">
-        <Cart/>
-        </div>
-        </CartProvider>  
-      </div>
-      
-    
-  
+      </CartProvider>
+    </div>
   );
 }
 

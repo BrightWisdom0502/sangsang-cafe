@@ -10,23 +10,14 @@ import NotFound from "./components/NotFound";
 const App = () => {
   return (
     <div>
-    <nav>
-        <Link to="/">Home</Link>|
-        <Link to="/menu-choice">Menu</Link>|
-        <Link to="/admin-choice">AdminChoice</Link>|
-        <Link to="/view-order-list">ViewOrderList</Link>|
-        <Link to="/edit-menu">EditMenu</Link>
-      </nav>
-
-
-    <Routes>
-      <Route path="/" element={<Main />} />
-      <Route path="/menu-choice" element={<Menu />} />
-      <Route path="/admin-choice" element={<AdminChoice />} />
-      <Route path="/view-order-list" element={<ViewOrderList />} />
-      <Route path="/edit-menu" element={<EditMenu />} />
-      <Route path="*" element={<NotFound />} />
-    </Routes>
+      <Routes>
+        <Route path="/" element={<Main />} />
+        <Route path="/menu-choice" element={<Menu />} />
+        <Route path="/admin-choice" element={<AdminChoice />} />
+        <Route path="/view-order-list" element={<ViewOrderList />} />
+        <Route path="/edit-menu" element={<EditMenu />} />
+        <Route path="*" element={<NotFound />} />
+      </Routes>
     </div>
   );
 }
