@@ -52,32 +52,54 @@ const ModalStyle = {
   maxHeight: '100vh',
   backgroundColor: "#eee",
 }
+
+
+
+
 const EditMenu = (props) => {
   
+  const [viewCategory, setViewCategory] = useState(0);
+
+
+
+
   return (
+
+
     <div id="EditMenu" style={ComponentStyle}>
+
+    
+      
       <div className="d-grid gap-2 d-md-block position-absolute">
         <nav>
-        <button className="btn btn-primary" type="button" style={CategoryStyle}>
-          <Nav.Link as={Link} to = {Edit001} style={{color: "white"}}>beverage</Nav.Link>
+        <button className="btn btn-primary" type="button" style={CategoryStyle} 
+          onClick={()=>setViewCategory(0)}>
+          beverage
         </button>
-        <button className="btn btn-primary" type="button" style={CategoryStyle}>
-          <Nav.Link as={Link} to = {Edit002} style={{color: "white"}}>coffee</Nav.Link>
+        <button className="btn btn-primary" type="button" style={CategoryStyle} 
+          onClick={()=>setViewCategory(1)}>
+          coffee
         </button>
-        <button className="btn btn-primary" type="button" style={CategoryStyle}>
-          <Nav.Link as={Link} to = {Edit003} style={{color: "white"}}>desserts</Nav.Link>
+        <button className="btn btn-primary" type="button" style={CategoryStyle} 
+          onClick={()=>setViewCategory(2)}>
+          desserts
         </button>
-        <button className="btn btn-primary" type="button" style={CategoryStyle}>
-          <Nav.Link as={Link} to = {Edit004} style={{color: "white"}}>tea</Nav.Link>
+        <button className="btn btn-primary" type="button" style={CategoryStyle} 
+          onClick={()=>setViewCategory()}>
+          tea
         </button>
         </nav>
       </div>
+
+      <div className="ChangeViewCategory"> 
+        { viewCategory === 0? <Edit001/> : viewCategory === 1? <Edit002/> : viewCategory === 2? <Edit003/> : <Edit004/>}
+      </div>
+      
 
 
       <div className="row row-cols-1 row-cols-md-4 g-3" 
         style={{  marginTop: '10px', marginLeft: '10px' , minWidth: '60vw' , maxWidth: '60vw' , minHeight: '80vh', maxHeight: '80vh'}}>
   
-        <Edit003 />
 
       </div>
 
