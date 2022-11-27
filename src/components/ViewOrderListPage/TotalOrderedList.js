@@ -5,7 +5,8 @@ import OrderDetailItem from "./OrderDetailItem";
 import order_list from "../../data/order_list.json";
 
 const componenetStyle = {
-  marginTop: "30px"
+  marginTop: "30px",
+  overflow: "auto"
 }
 
 const TotalOrderedList = ({ updateCurrentOrder }) => {

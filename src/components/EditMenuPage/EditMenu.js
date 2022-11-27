@@ -1,5 +1,5 @@
 import './Menu.css';
-import React, { useState } from "react";
+import React, { useCallback, useState } from "react";
 import { Link } from "react-router-dom";
 import {CartProvider} from "react-use-cart"
 import { Button, ToggleButton, ToggleButtonGroup } from 'react-bootstrap';
@@ -36,6 +36,9 @@ const EditMenu = () => {
     "price": -1,
     "category": ""
   });
+  
+  const [, updateState] = useState();
+  const forceUpdate = useCallback(() => updateState({}), []);
   
   const ToHot = () => {
     setData(Data);
@@ -134,7 +137,7 @@ const EditMenu = () => {
               </div>
             </div>
           </div>
-          <MenuControl currentMenu={currentMenu} />
+          <MenuControl currentMenu={currentMenu} category={menutop} parentForceUpdate={forceUpdate} />
         </div>
       </CartProvider>
     </div>
