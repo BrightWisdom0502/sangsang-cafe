@@ -1,7 +1,7 @@
 # 웹프레임워크1 시작하조 상상카페
 
 ## 실행환경 설정
-필요한 모듈 설치하기
+필요한 모듈 설치하기(json-server는 global로)
 ```
 npm install react
 npm install react-dom
@@ -11,10 +11,13 @@ npm install react-bootstrap bootstrap
 npm install react-icons
 npm install react-use-cart
 npm install react-filter-search
-npm install json-server
+npm install -g json-server
 ```
 ```
-npm install react react-dom react-scripts react-router-dom react-bootstrap bootstrap react-icons react-use-cart react-filter-search json-server
+npm install react react-dom react-scripts react-router-dom react-bootstrap bootstrap react-icons react-use-cart react-filter-search
+```
+```
+npm install -g json-server
 ```
 
 ## 실행 방법
