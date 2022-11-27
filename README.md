@@ -17,12 +17,12 @@ npm install react react-dom react-scripts react-router-dom react-bootstrap boots
 ```
 
 ## 실행 방법
-터미널 두 개 필요
-### sangsang-cafe 디렉토리 밑에서
+터미널 두 개 필요 (모두 sangsang-cafe 디렉토리 밑에서 실행)
+### 로컬 json 서버 실행
 ```
 $ json-server —watch ./src/data/order_list.json —port 3001
 ```
-### sangsang-cafe 디렉토리 밑에서
+### 리액트 앱 실행
 ```
 npm start
 ```
