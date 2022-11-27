@@ -11,7 +11,7 @@ import Tea from "../../data/tea.json";
 const componentStyle = {
   display: "flex",
   flexDirection: "column",
-  width: "100%",
+  width: "50%",
   padding: "30px"
 }
 
