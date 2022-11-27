@@ -1,4 +1,5 @@
 import { useState } from "react";
+// import {} from "write-json-file";
 import FloatingLabel from 'react-bootstrap/FloatingLabel';
 import Form from 'react-bootstrap/Form';
 import Button from 'react-bootstrap/Button';
@@ -38,9 +39,12 @@ const buttonStyle = {
   marginLeft: "10px"
 }
 
-const MenuControl = () => {
+const MenuControl = ({ currentMenu }) => {
   const [menuName, setMenuName] = useState("");
   const [menuPrice, setMenuPrice] = useState("");
+
+  const defaultTitle = currentMenu.title;
+  const defaultPrice = (currentMenu.price === -1) ? "" : currentMenu.price.toString();
 
   const onChangeMenuName = (e) => {
     setMenuName(e.target.value);
@@ -64,14 +68,14 @@ const MenuControl = () => {
           label="상품명"
           style={textInputStyle}
         >
-          <Form.Control onChange={onChangeMenuName} value={menuName} type="email" placeholder="name@example.com" />
+          <Form.Control onChange={onChangeMenuName} value={defaultTitle} type="email" placeholder="name@example.com" />
         </FloatingLabel>
         <FloatingLabel
           controlId="floatingInput"
           label="가격"
           style={textInputStyle}
         >
-          <Form.Control onChange={onChangeMenuPrice} value={menuPrice} type="email" placeholder="name@example.com" />
+          <Form.Control onChange={onChangeMenuPrice} value={defaultPrice} type="email" placeholder="name@example.com" />
         </FloatingLabel>
       </div>
       <div style={buttonContainerStyle}>

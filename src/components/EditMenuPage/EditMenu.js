@@ -1,13 +1,14 @@
 import './Menu.css';
 import React, { useState } from "react";
 import { Link } from "react-router-dom";
-import ItemCard from "../MenuPage/itemCard";
-import MenuControl from './MenuControl';
 import {CartProvider} from "react-use-cart"
-import SearchFilter from "react-filter-search"
 import { Button, ToggleButton, ToggleButtonGroup } from 'react-bootstrap';
 import { AiFillHome } from "react-icons/ai";
 import { BiArrowBack } from "react-icons/bi";
+
+import ItemCard from "../MenuPage/itemCard";
+import MenuControl from './MenuControl';
+import SearchFilter from "react-filter-search"
 
 import Coffee from "../../data/coffee.json";
 import Drink from "../../data/beverage.json";
@@ -28,47 +29,53 @@ const EditMenu = () => {
   const [menutop, setMenutop] = useState("커피");
   const [Data, setData] = useState(Coffee);
   const [searchInput,setSearchInput] = useState("");
+  const [currentMenu, setCurrentMenu] = useState({
+    "id": -1,
+    "img": "",
+    "title": "",
+    "price": -1,
+    "category": ""
+  });
   
   const ToHot = () => {
     setData(Data);
-    const coffees = Data.filter(item => item.category === "Hot")
-    setFilter(coffees)
+    const coffees = Data.filter(item => item.category === "Hot");
+    setFilter(coffees);
   }
   const ToIce = () => {
     setData(Data);
-    const coffees = Data.filter(item => item.category === "Ice")
-    setFilter(coffees)
+    const coffees = Data.filter(item => item.category === "Ice");
+    setFilter(coffees);
   } 
 
   const [filter, setFilter] = useState(Data.filter(item => item.category === "Hot"));
   const coffee = () => {
     setData(Coffee);
-    const coffees = Coffee.filter(item => item.category === "Hot")
+    const coffees = Coffee.filter(item => item.category === "Hot");
     const menutop = "커피";
-    setFilter(coffees)
-    setMenutop(menutop)
-  
+    setFilter(coffees);
+    setMenutop(menutop);
   }
   const tea = () => {
     setData(Tea)
-    const teas = Tea.filter(item => item.category === "Hot")
+    const teas = Tea.filter(item => item.category === "Hot");
     const menutop = "차";
-    setFilter(teas)
-    setMenutop(menutop)
+    setFilter(teas);
+    setMenutop(menutop);
   }
   const drink = () => {
     setData(Drink)
-    const drinks = Drink.filter(item => item.category === "Hot")
+    const drinks = Drink.filter(item => item.category === "Hot");
     const menutop = "음료";
-    setFilter(drinks)
-    setMenutop(menutop)
+    setFilter(drinks);
+    setMenutop(menutop);
   }
   const dessert = () => {
-    setData(Desserts)
+    setData(Desserts);
     //const desserts = Data.filter(item => item.category === "Dessert")
     const menutop = "디저트";
-    setFilter(Desserts)
-    setMenutop(menutop)
+    setFilter(Desserts);
+    setMenutop(menutop);
   }
 
   return (
@@ -114,13 +121,10 @@ const EditMenu = () => {
                       <div style={{ display: "flex", overflow: "auto" }}>
                         {results.map((item, index) => (
                           <ItemCard
-                            img={item.img}
-                            desc={item.desc}
-                            title={item.title}
-                            price={item.price}
                             key={index}
                             item={item}
                             category={item.category}
+                            setCurrentMenu={setCurrentMenu}
                           />
                         ))}
                       </div>
@@ -130,7 +134,7 @@ const EditMenu = () => {
               </div>
             </div>
           </div>
-          <MenuControl />
+          <MenuControl currentMenu={currentMenu} />
         </div>
       </CartProvider>
     </div>

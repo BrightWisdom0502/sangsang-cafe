@@ -1,6 +1,6 @@
 import React from "react";
 import { useCart } from "react-use-cart";
-import { writeFileSync } from "fs";
+// import { writeFileSync } from "fs";
 
 import order_list from "../../data/order_list.json";
 
