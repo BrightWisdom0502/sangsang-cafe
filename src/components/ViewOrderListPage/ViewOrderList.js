@@ -51,7 +51,7 @@ const orderDetailsContainerStyle = {
 }
 
 const ViewOrderList = () => {
-  const [currentOrder, setCurrentOrder] = useState(order_list[order_list.length - 1]);
+  const [currentOrder, setCurrentOrder] = useState(order_list.OrderList[order_list.OrderList.length - 1]);
 
   return (
     <div id="view-order-list" style={componentStyle}>

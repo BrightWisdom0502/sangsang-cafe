@@ -12,7 +12,7 @@ const TotalOrderedList = ({ updateCurrentOrder }) => {
   const dayList = [];
 
   // 최신순 출력을 위한 주문 기록 reverse()
-  order_list.slice(0).reverse().map(data => {
+  order_list.OrderList.slice(0).reverse().map(data => {
     if (!dayList.includes(data.date.split(" ")[0])) {
       dayList.push(data.date.split(" ")[0]);
     }
@@ -24,7 +24,7 @@ const TotalOrderedList = ({ updateCurrentOrder }) => {
         {
           dayList.map((date, i) => {
             const dayOrderList = [];
-            order_list.map(data => {
+            order_list.OrderList.map(data => {
               if (data.date.split(" ")[0] === date) {
                 dayOrderList.push(data);
               }

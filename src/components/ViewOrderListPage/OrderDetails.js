@@ -59,17 +59,19 @@ const OrderDetails = ({ currentOrder }) => {
     });
 
     if (currentOrderInfo.length <= 0) {
-      currentOrderInfo.push({ menu: menu, price: price, amount: 1 });
+      currentOrderInfo.push({ menu: menu, price: price, amount:menu.quantity});
       temp.push(menu);
-    } else if (temp.includes(menu)) {
-      for (const e of currentOrderInfo) {
-        if (e.menu === menu) {
-          e.amount += 1;
-          break;
-        } 
-      }
-    } else {
-      currentOrderInfo.push({ menu: menu, price: price, amount: 1 });
+    } 
+    // else if (temp.includes(menu)) {
+    //   for (const e of currentOrderInfo) {
+    //     if (e.menu === menu) {
+    //       e.amount += 1;
+    //       break;
+    //     } 
+    //   }
+    // } 
+    else {
+      currentOrderInfo.push({ menu: menu, price: price, amount:1 });
       temp.push(menu);
     }
   });
@@ -112,7 +114,7 @@ const OrderDetails = ({ currentOrder }) => {
               <h3 style={{fontSize: "30px"}}>수량</h3>
               {
                 currentOrderInfo.map((menu, i) => {
-                  return <span style={{fontSize: "30px"}} key={i}>{menu.amount.toString()}</span>
+                  return <span style={{fontSize: "30px"}} key={i}>{currentOrder.quantity[menu,i]}</span>
                 })
               }
             </div>

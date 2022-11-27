@@ -1,11 +1,23 @@
-import React from "react";
+import React, { useState,useEffect, useRef } from "react";
 import { useCart } from "react-use-cart";
 import { writeFileSync } from "fs";
 
 import order_list from "../../data/order_list.json";
+import { method } from "lodash";
 
 
 function Cart(props) {
+  // const [order_list,setorderlist] = useState([])
+  // useEffect(()=>{
+  //   fetch("http://localhost:3001/OrderList")
+  //   .then (res=>{
+  //     return res.json();
+  //   })
+  //   .then (data => {
+  //     setorderlist(data);
+  //   });
+
+  // })
   const {
     isEmpty,
     totalUniqueItems,
@@ -26,17 +38,42 @@ function Cart(props) {
   }
   
   let timestring = `${time.year}-${time.month}-${time.date} ${time.hours}:${time.minutes}`;
-
   const submitOrder = () => {
-    order_list.push({
-      "date": timestring,
-      "products": items.map((item)=> {
+    fetch(`http://localhost:3001/OrderList`, {
+    method: "POST" ,
+    headers: {
+      "Content-Type": "application/json",
+    },
+    body: JSON.stringify({
+      date: timestring,
+      products: items.map((item)=> {
         return (
           item.title
         )
       }),
-      "cost": cartTotal
-    })
+      quantity: items.map((item)=> {
+        return (
+          item.quantity
+        )
+      }),
+      cost: cartTotal
+    }),
+  }).then(res=> {
+    if(res.ok){
+      alert("결제가 완료되었습니다.")
+      emptyCart();
+    }
+  })
+
+    // order_list.push({
+    //   "date": timestring,
+    //   "products": items.map((item)=> {
+    //     return (
+    //       item.title
+    //     )
+    //   }),
+    //   "cost": cartTotal
+    // })
   }
   if (isEmpty) {
     return <h1 className="text-center">상품을 선택하십시오.</h1>;

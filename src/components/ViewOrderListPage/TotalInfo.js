@@ -25,7 +25,7 @@ const h1Style = {
 const TotalInfo = () => {
   // 총 매출, 주문 수 계산
   let tempRevenue = 0, tempOrderCound = 0
-  order_list.map(data => {
+  order_list.OrderList.map(data => {
     tempRevenue += parseInt(data.cost);
     tempOrderCound++;
   });
