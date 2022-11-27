@@ -28,6 +28,14 @@ function Cart(props) {
     emptyCart,
   } = useCart();
   let today = new Date();
+  // const minute = ""
+  //   if(today.getMinutes() < 10) {
+  //      minute = 0+today.getMinutes()
+  //   }else{
+  //     minute = today.getMinutes()
+  //   }
+
+
   let time = {
     year: today.getFullYear(),  //현재 년도
     month: today.getMonth() + 1, // 현재 월
