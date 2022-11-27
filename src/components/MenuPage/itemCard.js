@@ -7,7 +7,7 @@ function CardItem(props) {
 
   return (
     <div>
-      <Card style={{ width: '13rem', height: 'auto' }} className="p-0 card overflow-hidden h-100 shadow mx-4">
+      <Card style={{ width: '12rem', height: 'auto' }} className="p-0 card overflow-hidden h-100 shadow mx-4">
         <Card.Img src={process.env.PUBLIC_URL + "./images/" + props.img} className="card-img-top img-fluid" />
         <Card.Body className="text-center">
           <Card.Title>{props.title}</Card.Title>
