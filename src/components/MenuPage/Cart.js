@@ -4,7 +4,6 @@ import { writeFileSync } from "fs";
 
 import order_list from "../../data/order_list.json";
 
-
 function Cart(props) {
   const {
     isEmpty,

@@ -17,7 +17,7 @@ function CardItem(props) {
             className="btn btn-success"
             onClick={() => addItem(props.item)}
           >
-            add
+            edit
           </button>
         </Card.Body>
       </Card>
