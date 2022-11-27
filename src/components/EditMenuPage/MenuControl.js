@@ -1,49 +1,89 @@
-import { React, useState } from 'react';
-import { useSelector } from 'react-redux';
-import Card from 'react-bootstrap/Card';
+import { useState } from "react";
+// import {} from "write-json-file";
+import FloatingLabel from 'react-bootstrap/FloatingLabel';
+import Form from 'react-bootstrap/Form';
+import Button from 'react-bootstrap/Button';
 
-import  MenuForm from './MenuForm';
-
-const AdminMenuStyle = {
-  position : "absolute",
-  marginTop : "10px",
-  marginLeft : "65%",
-  width : "30vw",
-  height : "80vh"
-};
-
-const ButtonStyle = {
-  backgroundColor: "#587558",
-  borderColor: "#587558"
+const componentStyle = {
+  display: "flex",
+  flexDirection: "column",
+  width: "100%",
+  padding: "30px"
 }
 
+const titleStyle = {
+  display: "flex",
+  justifyContent: "center",
+  alignItems: "center",
+  fontSize: "50px",
+  fontWeight: "bold",
+  height: "30%"
+}
 
+const formStyle = {
+  display: "flex",
+  flexDirection: "column"
+}
 
-const MenuControl = ({init}) => {
-    <>
-    <MenuForm init = {init} />
-    </>
+const textInputStyle = {
+  marginBottom: "30px"
+}
 
+const buttonContainerStyle = {
+  display: "flex",
+  justifyContent: "center"
+}
 
-    return (
-      <div id="EditMenu" >
-        <div className="card text-left" style={AdminMenuStyle}>
+const buttonStyle = {
+  width: "40%",
+  marginLeft: "10px"
+}
 
-          <div className="card-body">
-            <h5 className="card-title">상품 편집</h5>
-            <p className="card-text">상품 편집 페이지입니다.</p>
+const MenuControl = ({ currentMenu }) => {
+  const [menuName, setMenuName] = useState("");
+  const [menuPrice, setMenuPrice] = useState("");
 
-            <form action="" className="EditCard">
-              <>
-              <MenuForm />
-              </>
-            </form>
-          </div>
-        </div>
+  const defaultTitle = currentMenu.title;
+  const defaultPrice = (currentMenu.price === -1) ? "" : currentMenu.price.toString();
 
-
-      </div>
-    );
+  const onChangeMenuName = (e) => {
+    setMenuName(e.target.value);
   }
-  
-  export default MenuControl;
+
+  const onChangeMenuPrice = (e) => {
+    setMenuPrice(e.target.value);
+  }
+
+  const resetInputInfo = () => {
+    setMenuName("");
+    setMenuPrice("");
+  }
+
+  return (
+    <div style={componentStyle}>
+      <h2 style={titleStyle}>메뉴 수정</h2>
+      <div style={formStyle}>
+        <FloatingLabel
+          controlId="floatingInput"
+          label="상품명"
+          style={textInputStyle}
+        >
+          <Form.Control onChange={onChangeMenuName} value={defaultTitle} type="email" placeholder="name@example.com" />
+        </FloatingLabel>
+        <FloatingLabel
+          controlId="floatingInput"
+          label="가격"
+          style={textInputStyle}
+        >
+          <Form.Control onChange={onChangeMenuPrice} value={defaultPrice} type="email" placeholder="name@example.com" />
+        </FloatingLabel>
+      </div>
+      <div style={buttonContainerStyle}>
+        <Button style={buttonStyle} variant="outline-success">변경</Button>{' '}
+        <Button style={buttonStyle} variant="outline-success" onClick={resetInputInfo}>취소</Button>{' '}
+      </div>
+    </div>
+  );
+}
+
+export default MenuControl;

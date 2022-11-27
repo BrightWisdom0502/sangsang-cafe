@@ -1,415 +1,144 @@
-import { NavLink, Link, Route, useNavigate } from "react-router-dom";
+import './Menu.css';
 import React, { useState } from "react";
-import { useSelector } from "react-redux";
+import { Link } from "react-router-dom";
+import {CartProvider} from "react-use-cart"
+import { Button, ToggleButton, ToggleButtonGroup } from 'react-bootstrap';
+import { AiFillHome } from "react-icons/ai";
+import { BiArrowBack } from "react-icons/bi";
 
-import Card from 'react-bootstrap/Card';
-import Nav from 'react-bootstrap/Nav';
+import ItemCard from "../MenuPage/itemCard";
+import MenuControl from './MenuControl';
+import SearchFilter from "react-filter-search"
 
-import MenuCategory from "../MenuPage/MenuCategory";
-import Menus from "../MenuPage/Menus";
-import MenuControl from "./MenuControl.js";
+import Coffee from "../../data/coffee.json";
+import Drink from "../../data/beverage.json";
+import Desserts from "../../data/desserts.json";
+import Tea from "../../data/tea.json";
 
-import beverage from "./beverage";
-import coffee from './coffee';
-import desserts from './desserts';
-import tea from './tea';
-
-const ComponentStyle = {
-  display: "flex",
-  flexDirection: "row",
-  height: "100vh",
-  padding: "30px",
-  backgroundColor: "#A4D3A0"
-};
-
-const ButtonStyle = {
-  textAlign: "center",
-  height: "35px",
-  borderColor: "#587558" , 
-  marginBottom: "20px"
-
+const buttonStyle = {
+  width: "100px",
+  marginRight: "30px",
+  textAlign: "center"
 }
 
-const CardStyle = {
-  width: "230px",
-  height: "350px",
-  overflow: "hidden",
+const buttonIconStyle = {
+  fontSize: "50px"
 }
 
-
-const CategoryStyle = {
-  width: "170px",
-  height: "40px",
-  marginLeft: "15px",
-  backgroundColor: "#587558",
-  borderColor: "#587558"
-}
-
-const ModalStyle = {
-  marginTop: '40px', 
-  marginLeft: '10px' , 
-  maxWidth: '60vw' , 
-  maxHeight: '100vh',
-  backgroundColor: "#eee",
-}
-
-
-
-
-const EditMenu = (props) => {
+const EditMenu = () => {
+  const [menutop, setMenutop] = useState("커피");
+  const [Data, setData] = useState(Coffee);
+  const [searchInput,setSearchInput] = useState("");
+  const [currentMenu, setCurrentMenu] = useState({
+    "id": -1,
+    "img": "",
+    "title": "",
+    "price": -1,
+    "category": ""
+  });
   
-  const [viewCategory, setViewCategory] = useState(0);
+  const ToHot = () => {
+    setData(Data);
+    const coffees = Data.filter(item => item.category === "Hot");
+    setFilter(coffees);
+  }
+  const ToIce = () => {
+    setData(Data);
+    const coffees = Data.filter(item => item.category === "Ice");
+    setFilter(coffees);
+  } 
 
-
-
+  const [filter, setFilter] = useState(Data.filter(item => item.category === "Hot"));
+  const coffee = () => {
+    setData(Coffee);
+    const coffees = Coffee.filter(item => item.category === "Hot");
+    const menutop = "커피";
+    setFilter(coffees);
+    setMenutop(menutop);
+  }
+  const tea = () => {
+    setData(Tea)
+    const teas = Tea.filter(item => item.category === "Hot");
+    const menutop = "차";
+    setFilter(teas);
+    setMenutop(menutop);
+  }
+  const drink = () => {
+    setData(Drink)
+    const drinks = Drink.filter(item => item.category === "Hot");
+    const menutop = "음료";
+    setFilter(drinks);
+    setMenutop(menutop);
+  }
+  const dessert = () => {
+    setData(Desserts);
+    //const desserts = Data.filter(item => item.category === "Dessert")
+    const menutop = "디저트";
+    setFilter(Desserts);
+    setMenutop(menutop);
+  }
 
   return (
-
-
-    <div id="EditMenu" style={ComponentStyle}>
-
-    
-      
-      <div className="d-grid gap-2 d-md-block position-absolute">
-        <nav>
-        <button className="btn btn-primary" type="button" style={CategoryStyle} 
-          onClick={()=>setViewCategory(0)}>
-          beverage
-        </button>
-        <button className="btn btn-primary" type="button" style={CategoryStyle} 
-          onClick={()=>setViewCategory(1)}>
-          coffee
-        </button>
-        <button className="btn btn-primary" type="button" style={CategoryStyle} 
-          onClick={()=>setViewCategory(2)}>
-          desserts
-        </button>
-        <button className="btn btn-primary" type="button" style={CategoryStyle} 
-          onClick={()=>setViewCategory()}>
-          tea
-        </button>
-        </nav>
-      </div>
-
-      <div className="ChangeViewCategory"> 
-        { viewCategory === 0? <Edit001/> : viewCategory === 1? <Edit002/> : viewCategory === 2? <Edit003/> : <Edit004/>}
-      </div>
-      
-
-
-      <div className="row row-cols-1 row-cols-md-4 g-3" 
-        style={{  marginTop: '10px', marginLeft: '10px' , minWidth: '60vw' , maxWidth: '60vw' , minHeight: '80vh', maxHeight: '80vh'}}>
-  
-
-      </div>
-
-          
-      
-  
-
-        
-      
-
-
-      <div style={{ width: '30vh' , height: '80vh' , marginTop: '70px' ,marginLeft: '55vw', position: 'absolute'}}>
-        <MenuControl />
-      </div>
-        
-
-    
-        <> 
-      <MenuCategory />
-      <Menus />
-        </>
-    
-    
+    <div className='BackGround'>
+      <CartProvider>
+        <div className='Kiosk'>
+          <div className='menu-part'>
+            <div className='category'>
+              <div className='btn_group' role="group" aria-label="Basic mixed styles example">
+                <Button variant="outline-dark" style={buttonStyle}>
+                  <Link style={{color: "inherit", textDecoration: "inherit"}} to="/admin-choice"><BiArrowBack style={buttonIconStyle} /></Link>
+                  {/* <BiArrowBack style={{fontSize: "50px"}} /> */}
+                </Button>
+                <Button variant="outline-dark" style={buttonStyle}>
+                  <Link style={{color: "inherit", textDecoration: "inherit"}} to="/"><AiFillHome style={buttonIconStyle} /></Link>
+                  {/* <AiFillHome style={{fontSize: "50px"}} /> */}
+                </Button>
+                <button type="button" className="btn_category" onClick={() => coffee()}>커피</button>
+                <button type="button" className="btn_category" onClick={() => tea()}>차</button>
+                <button type="button" className="btn_category" onClick={() => drink()}>음료</button>
+                <button type="button" className="btn_category" onClick={() => dessert()}>디저트</button>
+              </div>
+            </div>
+            <div class="search">
+              <form>
+                <input value={searchInput} placeholder="메뉴를 검색하시오" class="searchTerm" aria-label="Search through site content" onChange={(e) => setSearchInput(e.target.value)} />
+              </form>
+              <div className='HotIce_Group'>
+                <ToggleButtonGroup size="lg" type="radio" name="options" defaultValue={1}>
+                  <ToggleButton id="tbg-radio-1" variant="danger" value={1} onClick={() => ToHot()}> Hot </ToggleButton>
+                  <ToggleButton id="tbg-radio-2" variant="primary" value={2} onClick={() => ToIce()}> Ice </ToggleButton>
+                </ToggleButtonGroup>
+              </div>
+            </div>
+            <div className="product_list">
+              <h1 className="text-center mt-3">{menutop}</h1>
+              <div className='menus' style={{ width: "100%", overflow: "auto", display: "flex" }}>
+                <div style={{ display: "flex", overflow: "auto" }}>
+                  <SearchFilter
+                    value={searchInput}
+                    data={filter}
+                    renderResults={(results) => (
+                      <div style={{ display: "flex", overflow: "auto" }}>
+                        {results.map((item, index) => (
+                          <ItemCard
+                            key={index}
+                            item={item}
+                            category={item.category}
+                            setCurrentMenu={setCurrentMenu}
+                          />
+                        ))}
+                      </div>
+                    )}
+                  />
+                </div>
+              </div>
+            </div>
+          </div>
+          <MenuControl currentMenu={currentMenu} />
+        </div>
+      </CartProvider>
     </div>
-
-
   );
-}
-
-function Modal(){
-  return (
-    <div className="modal" style={ ModalStyle }>
-      <h2>내용</h2>
-    </div>
-  )
-}
-
-function MenuCard() {
-  return (
-    <div className="col">
-      <div className="card h-100" style={ CardStyle }>
-        <img src={'images/그린 티.jpg'} className="card-img-top" alt="..."/>
-          <div className="card-body">
-            <h5 className="card-title"> 제목 </h5>
-            <p className="card-text"> 가격</p>
-            <a href="#" className="btn btn-outline stretched-link" style={ButtonStyle}>편집</a>
-        </div>
-      </div>
-    </div>
-  )
-}
-
-
-
-function Edit001(props) {
-  return(
-    <div className="row row-cols-1 row-cols-md-4 g-3" 
-    style={{ marginTop: '40px', marginLeft: '10px' , minWidth: '60vw' , maxWidth: '60vw' , minHeight: '80vh', maxHeight: '80vh'}}>
-
-    <div className="col">
-      <div className="card h-100" style={ CardStyle }>
-        <img src={'images/녹차 라떼.jpg'} className="card-img-top" alt="..."/>
-          <div className="card-body">
-            <h5 className="card-title"> 녹차 라떼 </h5>
-            <p className="card-text"> 5500원</p>
-            <a href="#" className="btn btn-outline stretched-link" style={ButtonStyle}>편집</a>
-        </div>
-      </div>
-    </div>
-
-    <div className="col">
-    <div className="card h-100" style={ CardStyle }>
-      <img src={'images/핫 초콜릿.jpg'} className="card-img-top" alt="..."/>
-        <div className="card-body">
-          <h5 className="card-title"> 핫 초콜릿 </h5>
-          <p className="card-text"> 5000원</p>
-          <a href="#" className="btn btn-outline stretched-link" style={ButtonStyle}>편집</a>
-      </div>
-    </div>
-    </div>
-
-    <div className="col">
-    <div className="card h-100" style={ CardStyle }>
-      <img src={'images/아이스 초콜릿.jpg'} className="card-img-top" alt="..."/>
-        <div className="card-body">
-          <h5 className="card-title"> 아이스 초콜릿 </h5>
-          <p className="card-text"> 5300원</p>
-          <a href="#" className="btn btn-outline stretched-link" style={ButtonStyle}>편집</a>
-      </div>
-    </div>
-    </div>
-  </div>
-  )
-}
-
-
-function Edit002(props) {
-  return(
-    <div className="row row-cols-1 row-cols-md-4 g-3" 
-    style={{ marginTop: '40px', marginLeft: '10px' , minWidth: '60vw' , maxWidth: '60vw' , minHeight: '80vh', maxHeight: '80vh'}}>
-
-    <div className="col">
-      <div className="card h-100" style={ CardStyle }>
-        <img src={'images/아메리카노.jpg'} className="card-img-top" alt="..."/>
-          <div className="card-body">
-            <h5 className="card-title"> 아메리카노 </h5>
-            <p className="card-text"> 4000원</p>
-            <a href="#" className="btn btn-outline stretched-link" style={ButtonStyle}>편집</a>
-        </div>
-      </div>
-    </div>
-
-    <div className="col">
-    <div className="card h-100" style={ CardStyle }>
-      <img src={'images/바닐라 라떼.jpg'} className="card-img-top" alt="..."/>
-        <div className="card-body">
-          <h5 className="card-title"> 카페 라떼 </h5>
-          <p className="card-text"> 4500원</p>
-          <a href="#" className="btn btn-outline stretched-link" style={ButtonStyle}>편집</a>
-      </div>
-    </div>
-    </div>
-
-    <div className="col">
-    <div className="card h-100" style={ CardStyle }>
-      <img src={'images/카푸치노.jpg'} className="card-img-top" alt="..."/>
-        <div className="card-body">
-          <h5 className="card-title"> 카푸치노 </h5>
-          <p className="card-text"> 4500원</p>
-          <a href="#" className="btn btn-outline stretched-link" style={ButtonStyle}>편집</a>
-      </div>
-    </div>
-    </div>
-
-    <div className="col">
-    <div className="card h-100" style={ CardStyle }>
-      <img src={'images/아이스 카라멜 마키아또.jpg'} className="card-img-top" alt="..."/>
-        <div className="card-body">
-          <h5 className="card-title"> 카라멜 마키아또 </h5>
-          <p className="card-text"> 5400원</p>
-          <a href="#" className="btn btn-outline stretched-link" style={ButtonStyle}>편집</a>
-      </div>
-    </div>
-    </div>
-
-    <div className="col">
-    <div className="card h-100" style={ CardStyle }>
-      <img src={'images/에스프레소.jpg'} className="card-img-top" alt="..."/>
-        <div className="card-body">
-          <h5 className="card-title"> 에스프레소 </h5>
-          <p className="card-text"> 4000원</p>
-          <a href="#" className="btn btn-outline stretched-link" style={ButtonStyle}>편집</a>
-      </div>
-    </div>
-    </div>
-
-    <div className="col">
-    <div className="card h-100" style={ CardStyle }>
-      <img src={'images/아포가토.jpg'} className="card-img-top" alt="..."/>
-        <div className="card-body">
-          <h5 className="card-title"> 아포카토 </h5>
-          <p className="card-text"> 6000원</p>
-          <a href="#" className="btn btn-outline stretched-link" style={ButtonStyle}>편집</a>
-      </div>
-    </div>
-    </div>
-
-  </div>
-  )
-}
-
-
-function Edit003(props) {
-  return(
-    <div className="row row-cols-1 row-cols-md-4 g-3" 
-    style={{ marginTop: '40px', marginLeft: '10px' , minWidth: '60vw' , maxWidth: '60vw' , minHeight: '80vh', maxHeight: '80vh'}}>
-
-    <div className="col">
-      <div className="card h-100" style={ CardStyle }>
-        <img src={'images/베이글.jpg'} className="card-img-top" alt="..."/>
-          <div className="card-body">
-            <h5 className="card-title"> 베이글 </h5>
-            <p className="card-text"> 3000원</p>
-            <a href="#" className="btn btn-outline stretched-link" style={ButtonStyle}>편집</a>
-        </div>
-      </div>
-    </div>
-
-    <div className="col">
-    <div className="card h-100" style={ CardStyle }>
-      <img src={'images/스콘.jpg'} className="card-img-top" alt="..."/>
-        <div className="card-body">
-          <h5 className="card-title"> 스콘 </h5>
-          <p className="card-text"> 3500원</p>
-          <a href="#" className="btn btn-outline stretched-link" style={ButtonStyle}>편집</a>
-      </div>
-    </div>
-    </div>
-
-    <div className="col">
-    <div className="card h-100" style={ CardStyle }>
-      <img src={'images/크루아상.jpg'} className="card-img-top" alt="..."/>
-        <div className="card-body">
-          <h5 className="card-title"> 크루아상 </h5>
-          <p className="card-text"> 4000원</p>
-          <a href="#" className="btn btn-outline stretched-link" style={ButtonStyle}>편집</a>
-      </div>
-    </div>
-    </div>
-
-    <div className="col">
-    <div className="card h-100" style={ CardStyle }>
-      <img src={'images/초콜릿 칩 쿠키.jpg'} className="card-img-top" alt="..."/>
-        <div className="card-body">
-          <h5 className="card-title"> 초콜릿 칩 쿠키 </h5>
-          <p className="card-text"> 2800원</p>
-          <a href="#" className="btn btn-outline stretched-link" style={ButtonStyle}>편집</a>
-      </div>
-    </div>
-    </div>
-
-    <div className="col">
-    <div className="card h-100" style={ CardStyle }>
-      <img src={'images/초콜릿 케이크.jpg'} className="card-img-top" alt="..."/>
-        <div className="card-body">
-          <h5 className="card-title"> 초콜릿 케이크 </h5>
-          <p className="card-text"> 6000원</p>
-          <a href="#" className="btn btn-outline stretched-link" style={ButtonStyle}>편집</a>
-      </div>
-    </div>
-    </div>
-
-    <div className="col">
-    <div className="card h-100" style={ CardStyle }>
-      <img src={'images/치즈 케이크.jpg'} className="card-img-top" alt="..."/>
-        <div className="card-body">
-          <h5 className="card-title"> 치즈 케이크 </h5>
-          <p className="card-text"> 5500원</p>
-          <a href="#" className="btn btn-outline stretched-link" style={ButtonStyle}>편집</a>
-      </div>
-    </div>
-    </div>
-
-  </div>
-  )
-}
-
-
-function Edit004(props) {
-  return(
-    <div className="row row-cols-1 row-cols-md-4 g-3" 
-    style={{ marginTop: '40px', marginLeft: '10px' , minWidth: '60vw' , maxWidth: '60vw' , minHeight: '80vh', maxHeight: '80vh'}}>
-
-    <div className="col">
-      <div className="card h-100" style={ CardStyle }>
-        <img src={'images/그린 티.jpg'} className="card-img-top" alt="..."/>
-          <div className="card-body">
-            <h5 className="card-title"> 그린 티 </h5>
-            <p className="card-text"> 5000원</p>
-            <a href="#" className="btn btn-outline stretched-link" style={ButtonStyle}>편집</a>
-        </div>
-      </div>
-    </div>
-
-    <div className="col">
-    <div className="card h-100" style={ CardStyle }>
-      <img src={'images/민트 티.jpg'} className="card-img-top" alt="..."/>
-        <div className="card-body">
-          <h5 className="card-title"> 민트 티 </h5>
-          <p className="card-text"> 4500원</p>
-          <a href="#" className="btn btn-outline stretched-link" style={ButtonStyle}>편집</a>
-      </div>
-    </div>
-    </div>
-
-    <div className="col">
-    <div className="card h-100" style={ CardStyle }>
-      <img src={'images/밀크 티.jpg'} className="card-img-top" alt="..."/>
-        <div className="card-body">
-          <h5 className="card-title"> 밀크 티 </h5>
-          <p className="card-text"> 5500원</p>
-          <a href="#" className="btn btn-outline stretched-link" style={ButtonStyle}>편집</a>
-      </div>
-    </div>
-    </div>
-
-    <div className="col">
-    <div className="card h-100" style={ CardStyle }>
-      <img src={'images/얼 그레이 티.jpg'} className="card-img-top" alt="..."/>
-        <div className="card-body">
-          <h5 className="card-title"> 얼그레이 티 </h5>
-          <p className="card-text"> 4500원</p>
-          <a href="#" className="btn btn-outline stretched-link" style={ButtonStyle}>편집</a>
-      </div>
-    </div>
-    </div>
-
-    <div className="col">
-    <div className="card h-100" style={ CardStyle }>
-      <img src={'images/캐모마일 티.jpg'} className="card-img-top" alt="..."/>
-        <div className="card-body">
-          <h5 className="card-title"> 캐모마일 티 </h5>
-          <p className="card-text"> 4500원</p>
-          <a href="#" className="btn btn-outline stretched-link" style={ButtonStyle}>편집</a>
-      </div>
-    </div>
-    </div>
-
-  </div>
-  )
 }
 
 export default EditMenu;

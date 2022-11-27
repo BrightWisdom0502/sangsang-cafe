@@ -56,14 +56,14 @@ const MenuForm = ({init}) => {
             <>
             <div className="md-input-group">
                 <label for="FormPrice" className="form-label">상품명</label>
-                <div>
+                {/* <div> */}
                 <input 
                     type="text"  
                     id="menuName" 
                     value={menuName} placeholder={savedName}
                     onChange={e => setMenuName(e.target.value)}
                     />
-                </div>
+                {/* </div> */}
             </div>
 
             <div className="input-group">
@@ -88,10 +88,7 @@ const MenuForm = ({init}) => {
               <hr />
               <h5>수정된 상품명: {savedName}</h5>
               <h5>수정된 가격: {savedPrice} 원</h5>
-            
-
             </>
-
         );
 
 }
