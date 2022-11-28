@@ -1,12 +1,8 @@
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import FloatingLabel from 'react-bootstrap/FloatingLabel';
 import Form from 'react-bootstrap/Form';
 import Button from 'react-bootstrap/Button';
 
-import Coffee from "../../data/coffee.json";
-import Drink from "../../data/beverage.json";
-import Desserts from "../../data/desserts.json";
-import Tea from "../../data/tea.json";
 import useFetch from "../../hooks/useFetch";
 
 const componentStyle = {
@@ -49,6 +45,9 @@ const MenuControl = ({ currentMenu, category, parentForceUpdate }) => {
   const Drink = useFetch("http://localhost:3001/Drink")
   const Dessert = useFetch("http://localhost:3001/Dessert")
   const Tea = useFetch("http://localhost:3001/Tea")
+  function refreshPage() {
+    window.location.reload(false);
+  }
 
   const [menuName, setMenuName] = useState("");
   const [menuPrice, setMenuPrice] = useState("");
@@ -67,94 +66,104 @@ const MenuControl = ({ currentMenu, category, parentForceUpdate }) => {
   }
 
   const changeMenuInfo = () => {
-    
-    
-    if (category === "커피") {
-      
-      Coffee.map(item =>{if (item.title === currentMenu.title) {
-        
-        fetch(`http://localhost:3001/Coffee/${item.id}`, {
-          method: "PUT",
-          headers: {
-          "Content-Type": "application/json",
-          },
-          body: JSON.stringify({
-          ...item,
-          title: menuName,
-          price: parseInt(menuPrice)
-      }),
-    
-        }).then(res=>{
-          if (res.ok) {
-            alert("수정이 완료되었습니다.")
-          }
-        })}})
-      
-      
-        
 
-         
-        
+
+    if (category === "커피") {
+
+      Coffee.map(item => {
+        if (item.title === currentMenu.title) {
+
+          fetch(`http://localhost:3001/Coffee/${item.id}`, {
+            method: "PUT",
+            headers: {
+              "Content-Type": "application/json",
+            },
+            body: JSON.stringify({
+              ...item,
+              title: menuName,
+              price: parseInt(menuPrice)
+            }),
+
+          }).then(res => {
+            if (res.ok) {
+              alert("수정이 완료되었습니다.")
+              refreshPage()
+            }
+          })
+        }
+      })
     } else if (category === "차") {
-      Tea.map(item =>{if (item.title === currentMenu.title) {
-        
-        fetch(`http://localhost:3001/Tea/${item.id}`, {
-          method: "PUT",
-          headers: {
-          "Content-Type": "application/json",
-          },
-          body: JSON.stringify({
-          ...item,
-          title: menuName,
-          price: parseInt(menuPrice)
-      }),
-    
-        }).then(res=>{
-          if (res.ok) {
-            alert("수정이 완료되었습니다.")
-          }
-        })}})
-      
+      Tea.map(item => {
+        if (item.title === currentMenu.title) {
+
+          fetch(`http://localhost:3001/Tea/${item.id}`, {
+            method: "PUT",
+            headers: {
+              "Content-Type": "application/json",
+            },
+            body: JSON.stringify({
+              ...item,
+              title: menuName,
+              price: parseInt(menuPrice)
+            }),
+
+          }).then(res => {
+            if (res.ok) {
+              alert("수정이 완료되었습니다.")
+              refreshPage();
+            }
+          })
+        }
+      })
+
     } else if (category === "음료") {
-      Drink.map(item =>{if (item.title === currentMenu.title) {
-        
-        fetch(`http://localhost:3001/Drink/${item.id}`, {
-          method: "PUT",
-          headers: {
-          "Content-Type": "application/json",
-          },
-          body: JSON.stringify({
-          ...item,
-          title: menuName,
-          price: parseInt(menuPrice)
-      }),
-    
-        }).then(res=>{
-          if (res.ok) {
-            alert("수정이 완료되었습니다.")
-          }
-        })}})
-      
+      Drink.map(item => {
+        if (item.title === currentMenu.title) {
+
+          fetch(`http://localhost:3001/Drink/${item.id}`, {
+            method: "PUT",
+            headers: {
+              "Content-Type": "application/json",
+            },
+            body: JSON.stringify({
+              ...item,
+              title: menuName,
+              price: parseInt(menuPrice)
+            }),
+
+          }).then(res => {
+            if (res.ok) {
+              alert("수정이 완료되었습니다.")
+              refreshPage();
+            }
+          })
+        }
+      })
+
     } else if (category === "디저트") {
-      Dessert.map(item =>{if (item.title === currentMenu.title) {
-        
-        fetch(`http://localhost:3001/Dessert/${item.id}`, {
-          method: "PUT",
-          headers: {
-          "Content-Type": "application/json",
-          },
-          body: JSON.stringify({
-          ...item,
-          title: menuName,
-          price: parseInt(menuPrice)
-      }),
-    
-        }).then(res=>{
-          if (res.ok) {
-            alert("수정이 완료되었습니다.")
-          }
-        })}})
-      
+      Dessert.map(item => {
+        if (item.title === currentMenu.title) {
+
+          fetch(`http://localhost:3001/Dessert/${item.id}`, {
+            method: "PUT",
+            headers: {
+              "Content-Type": "application/json",
+            },
+            body: JSON.stringify({
+              ...item,
+              title: menuName,
+              price: parseInt(menuPrice)
+            }),
+
+          }).then(res => {
+            if (res.ok) {
+              alert("수정이 완료되었습니다.")
+              refreshPage();
+            }
+          })
+        }
+      })
+
     }
     resetInputInfo();
     parentForceUpdate();
@@ -163,7 +172,7 @@ const MenuControl = ({ currentMenu, category, parentForceUpdate }) => {
   return (
     <div style={componentStyle}>
       <h2 style={titleStyle}>메뉴 수정</h2>
-      <div style={{marginBottom: "50px"}}>
+      <div style={{ marginBottom: "50px" }}>
         <h3>상품명 : {currentMenu.title}</h3>
         <h3>가격 : {(currentMenu.price === -1) ? "" : currentMenu.price.toString()}</h3>
       </div>

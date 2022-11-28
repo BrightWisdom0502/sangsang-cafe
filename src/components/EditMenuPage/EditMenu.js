@@ -10,10 +10,6 @@ import ItemCard from "../MenuPage/itemCard";
 import MenuControl from './MenuControl';
 import SearchFilter from "react-filter-search"
 
-// import Coffee from "../../data/coffee.json";
-// import Drink from "../../data/beverage.json";
-// import Desserts from "../../data/desserts.json";
-// import Tea from "../../data/tea.json";
 import useFetch from '../../hooks/useFetch';
 
 const buttonStyle = {

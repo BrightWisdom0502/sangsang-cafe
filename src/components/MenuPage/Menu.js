@@ -1,6 +1,6 @@
 import './Menu.css';
 import Cart from './Cart';
-import React, { useEffect, useState } from "react";
+import React, { useState } from "react";
 import { Link } from "react-router-dom";
 import ItemCard from "./itemCard";
 import { CartProvider } from "react-use-cart"
