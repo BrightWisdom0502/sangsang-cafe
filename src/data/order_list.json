@@ -1,4 +1,199 @@
 {
+  "Coffee": [
+    {
+      "id": 4,
+      "img": "아메리카노.jpg",
+      "title": "아메리",
+      "price": 4000,
+      "category": "Hot"
+    },
+    {
+      "id": 5,
+      "img": "카페라떼.jpg",
+      "title": "카페라떼",
+      "price": 5000,
+      "category": "Hot"
+    },
+    {
+      "id": 6,
+      "img": "에스프레소.jpg",
+      "title": "에스프레소",
+      "desc": "",
+      "price": 4000,
+      "category": "Hot"
+    },
+    {
+      "id": 7,
+      "img": "바닐라 라떼.jpg",
+      "title": "바닐라 라떼",
+      "desc": "",
+      "price": 5000,
+      "category": "Hot"
+    },
+    {
+      "id": 8,
+      "img": "아이스 아메리카노.jpg",
+      "title": "아이스 아메리카노",
+      "desc": "",
+      "price": 4000,
+      "category": "Ice"
+    },
+    {
+      "id": 9,
+      "img": "아이스 카페 라떼.jpg",
+      "title": "아이스 카페 라떼",
+      "desc": "",
+      "price": 5000,
+      "category": "Ice"
+    },
+    {
+      "id": 10,
+      "img": "아이스 바닐라 라떼.jpg",
+      "title": "아이스 바닐라 라떼",
+      "desc": "",
+      "price": 5000,
+      "category": "Ice"
+    }
+  ],
+  "Drink": [
+    {
+      "id": 1,
+      "title": "녹차 라떼",
+      "price": "5500",
+      "img": "녹차 라떼.jpg",
+      "category": "Hot"
+    },
+    {
+      "id": 2,
+      "title": "핫 초콜릿",
+      "price": "5000",
+      "img": "핫 초콜릿.jpg",
+      "category": "Hot"
+    },
+    {
+      "id": 3,
+      "title": "아이스 초콜릿",
+      "price": "5300",
+      "img": "아이스 초콜릿.jpg",
+      "category": "Ice"
+    }
+  ],
+  "Dessert": [
+    {
+      "id": 11,
+      "title": "베이그르",
+      "price": 2500,
+      "img": "베이글.jpg",
+      "category": "Hot"
+    },
+    {
+      "id": 12,
+      "title": "스콘",
+      "price": "3500",
+      "img": "스콘.jpg",
+      "category": "Hot"
+    },
+    {
+      "id": 13,
+      "title": "크루아상",
+      "price": "4000",
+      "img": "크루아상.jpg",
+      "category": "Hot"
+    },
+    {
+      "id": 14,
+      "title": "초콜릿 칩 쿠키",
+      "price": "2800",
+      "img": "초콜릿 칩 쿠키.jpg",
+      "category": "Hot"
+    },
+    {
+      "id": 15,
+      "title": "초콜릿 케이크",
+      "price": "6000",
+      "img": "초콜릿 케이크.jpg",
+      "category": "Hot"
+    },
+    {
+      "id": 16,
+      "title": "치즈 케이크",
+      "price": "5500",
+      "img": "치즈 케이크.jpg",
+      "category": "Hot"
+    }
+  ],
+  "Tea": [
+    {
+      "id": 17,
+      "img": "얼 그레이 티.jpg",
+      "title": "얼 그레이 티",
+      "price": 4000,
+      "category": "Hot"
+    },
+    {
+      "id": 18,
+      "img": "그린 티.jpg",
+      "title": "그린 티",
+      "price": 5000,
+      "category": "Hot"
+    },
+    {
+      "id": 19,
+      "img": "캐모마일 티.jpg",
+      "title": "캐모마일 티",
+      "price": 4000,
+      "category": "Hot"
+    },
+    {
+      "id": 20,
+      "img": "민트 티.jpg",
+      "title": "민트 티",
+      "price": 5000,
+      "category": "Hot"
+    },
+    {
+      "id": 21,
+      "img": "밀크 티.jpg",
+      "title": "밀크 티",
+      "price": 5000,
+      "category": "Hot"
+    },
+    {
+      "id": 22,
+      "img": "아이스 얼 그레이 티.jpg",
+      "title": "아이스 얼 그레이 티",
+      "price": 4000,
+      "category": "Ice"
+    },
+    {
+      "id": 23,
+      "img": "아이스 그린 티.jpg",
+      "title": "아이스 그린 티",
+      "price": 5000,
+      "category": "Ice"
+    },
+    {
+      "id": 24,
+      "img": "아이스 캐모마일 티.jpg",
+      "title": "아이스 캐모마일 티",
+      "price": 4000,
+      "category": "Ice"
+    },
+    {
+      "id": 25,
+      "img": "아이스 민트 티.jpg",
+      "title": "아이스 민트 티",
+      "price": 5000,
+      "category": "Ice"
+    },
+    {
+      "id": 26,
+      "img": "아이스 밀크 티.jpg",
+      "title": "아이스 밀크 티",
+      "price": 5000,
+      "category": "Ice"
+    }
+  ],
   "OrderList": [
     {
       "date": "2022-11-27 19:10",
@@ -197,6 +392,43 @@
       ],
       "cost": 31000,
       "id": 27
+    },
+    {
+      "date": "2022-11-28 15:37",
+      "products": [
+        "아메리카노",
+        "카페라떼"
+      ],
+      "quantity": [
+        2,
+        1
+      ],
+      "cost": 14000,
+      "id": 28
+    },
+    {
+      "date": "2022-11-28 16:41",
+      "products": [
+        "아메리카노",
+        "카페라떼"
+      ],
+      "quantity": [
+        2,
+        1
+      ],
+      "cost": 13000,
+      "id": 29
+    },
+    {
+      "date": "2022-11-28 17:20",
+      "products": [
+        "아메리카노"
+      ],
+      "quantity": [
+        3
+      ],
+      "cost": 12000,
+      "id": 30
     }
   ]
 }

@@ -10,10 +10,11 @@ import ItemCard from "../MenuPage/itemCard";
 import MenuControl from './MenuControl';
 import SearchFilter from "react-filter-search"
 
-import Coffee from "../../data/coffee.json";
-import Drink from "../../data/beverage.json";
-import Desserts from "../../data/desserts.json";
-import Tea from "../../data/tea.json";
+// import Coffee from "../../data/coffee.json";
+// import Drink from "../../data/beverage.json";
+// import Desserts from "../../data/desserts.json";
+// import Tea from "../../data/tea.json";
+import useFetch from '../../hooks/useFetch';
 
 const buttonStyle = {
   width: "100px",
@@ -25,10 +26,16 @@ const buttonIconStyle = {
   fontSize: "50px"
 }
 
+
 const EditMenu = () => {
-  const [menutop, setMenutop] = useState("커피");
+  const Coffee = useFetch("http://localhost:3001/Coffee")
+  const Drink = useFetch("http://localhost:3001/Drink")
+  const Dessert = useFetch("http://localhost:3001/Dessert")
+  const Tea = useFetch("http://localhost:3001/Tea")
+  const [menutop, setMenutop] = useState("수정할 메뉴의 종류를 선택하십시오.");
   const [Data, setData] = useState(Coffee);
   const [searchInput,setSearchInput] = useState("");
+  
   const [currentMenu, setCurrentMenu] = useState({
     "id": -1,
     "img": "",
@@ -74,10 +81,10 @@ const EditMenu = () => {
     setMenutop(menutop);
   }
   const dessert = () => {
-    setData(Desserts);
+    setData(Dessert);
     //const desserts = Data.filter(item => item.category === "Dessert")
     const menutop = "디저트";
-    setFilter(Desserts);
+    setFilter(Dessert);
     setMenutop(menutop);
   }
 

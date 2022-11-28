@@ -1,17 +1,18 @@
 import './Menu.css';
 import Cart from './Cart';
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import ItemCard from "./itemCard";
 import { CartProvider } from "react-use-cart"
 import SearchFilter from "react-filter-search"
 import { Button, ToggleButton, ToggleButtonGroup } from 'react-bootstrap';
 import { AiFillHome } from "react-icons/ai";
+import useFetch from '../../hooks/useFetch';
 
-import Coffee from "../../data/coffee.json";
-import Drink from "../../data/beverage.json";
-import Desserts from "../../data/desserts.json";
-import Tea from "../../data/tea.json";
+// import Coffee from "../../data/coffee.json";
+// import Drink from "../../data/beverage.json";
+// import Desserts from "../../data/desserts.json";
+// import Tea from "../../data/tea.json";
 
 const buttonStyle = {
   width: "100px",
@@ -24,9 +25,18 @@ const buttonIconStyle = {
 }
 
 function App() {
-  const [menutop, setMenutop] = useState("커피");
+  const Coffee = useFetch("http://localhost:3001/Coffee")
+  const Drink = useFetch("http://localhost:3001/Drink")
+  const Dessert = useFetch("http://localhost:3001/Dessert")
+  const Tea = useFetch("http://localhost:3001/Tea")
+
+
+
+  const [menutop, setMenutop] = useState("메뉴의 종류를 선택하세요.");
   const [Data, setData] = useState(Coffee);
   const [searchInput, setSearchInput] = useState("");
+
+  
 
   const ToHot = () => {
     setData(Data);
@@ -63,10 +73,10 @@ function App() {
     setMenutop(menutop)
   }
   const dessert = () => {
-    setData(Desserts)
+    setData(Dessert)
     //const desserts = Data.filter(item => item.category === "Dessert")
     const menutop = "디저트";
-    setFilter(Desserts)
+    setFilter(Dessert)
     setMenutop(menutop)
   }
   
