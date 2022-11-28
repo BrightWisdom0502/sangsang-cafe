@@ -1,22 +1,7 @@
-import React, { useState,useEffect, useRef } from "react";
+import React from "react";
 import { useCart } from "react-use-cart";
-// import { writeFileSync } from "fs";
-
-import order_list from "../../data/order_list.json";
-import { method } from "lodash";
 
 function Cart(props) {
-  // const [order_list,setorderlist] = useState([])
-  // useEffect(()=>{
-  //   fetch("http://localhost:3001/OrderList")
-  //   .then (res=>{
-  //     return res.json();
-  //   })
-  //   .then (data => {
-  //     setorderlist(data);
-  //   });
-
-  // })
   const {
     isEmpty,
     totalUniqueItems,
@@ -27,15 +12,8 @@ function Cart(props) {
     removeItem,
     emptyCart,
   } = useCart();
+
   let today = new Date();
-  // const minute = ""
-  //   if(today.getMinutes() < 10) {
-  //      minute = 0+today.getMinutes()
-  //   }else{
-  //     minute = today.getMinutes()
-  //   }
-
-
   let time = {
     year: today.getFullYear(),  //현재 년도
     month: today.getMonth() + 1, // 현재 월
@@ -45,46 +23,36 @@ function Cart(props) {
   }
 
   let timestring = `${time.year}-${time.month}-${time.date} ${time.hours}:${time.minutes}`;
-  if(time.minutes<10 && time.minutes==0 ){
+  if (time.minutes < 10 && time.minutes == 0) {
     timestring = `${time.year}-${time.month}-${time.date} ${time.hours}:0${time.minutes}`;
   }
-  
+
   const submitOrder = () => {
     fetch(`http://localhost:3001/OrderList`, {
-    method: "POST" ,
-    headers: {
-      "Content-Type": "application/json",
-    },
-    body: JSON.stringify({
-      date: timestring,
-      products: items.map((item)=> {
-        return (
-          item.title
-        )
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify({
+        date: timestring,
+        products: items.map((item) => {
+          return (
+            item.title
+          )
+        }),
+        quantity: items.map((item) => {
+          return (
+            item.quantity
+          )
+        }),
+        cost: cartTotal
       }),
-      quantity: items.map((item)=> {
-        return (
-          item.quantity
-        )
-      }),
-      cost: cartTotal
-    }),
-  }).then(res=> {
-    if(res.ok){
-      alert("결제가 완료되었습니다.")
-      emptyCart();
-    }
-  })
-
-    // order_list.push({
-    //   "date": timestring,
-    //   "products": items.map((item)=> {
-    //     return (
-    //       item.title
-    //     )
-    //   }),
-    //   "cost": cartTotal
-    // })
+    }).then(res => {
+      if (res.ok) {
+        alert("결제가 완료되었습니다.")
+        emptyCart();
+      }
+    })
   }
   if (isEmpty) {
     return <h1 className="text-center">상품을 선택하십시오.</h1>;
@@ -145,9 +113,7 @@ function Cart(props) {
           <h2>Total Price: {cartTotal} ₩</h2>
         </div>
         <div className="col-auto">
-          <button className="btn btn-danger m-2" onClick={() => emptyCart()}>
-            장바구니 비우기
-          </button>
+          <button className="btn btn-danger m-2" onClick={() => emptyCart()}>장바구니 비우기</button>
           <button className="btn btn-primary m-2" onClick={() => submitOrder()}>결제 하기</button>
         </div>
       </div>
