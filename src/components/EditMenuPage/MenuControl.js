@@ -87,6 +87,7 @@ const MenuControl = ({ currentMenu, category, parentForceUpdate }) => {
         if (item.title === currentMenu.title) {
           item.title = menuName;
           item.price = parseInt(menuPrice);
+          console.log(item.price);
         }
       });
     }
