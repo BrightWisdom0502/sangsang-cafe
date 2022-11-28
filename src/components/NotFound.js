@@ -33,7 +33,7 @@ const NotFound = () => {
     <div style={containerStyle}>
       <h1>이 페이지는 없는 페이지 입니다!</h1>
       <Button variant="outline-dark" style={buttonStyle}>
-        <Link style={{color: "inherit", textDecoration: "inherit"}} to="/"><AiFillHome style={buttonIconStyle} /></Link>
+        <Link style={{ color: "inherit", textDecoration: "inherit" }} to="/"><AiFillHome style={buttonIconStyle} /></Link>
         {/* <AiFillHome style={{fontSize: "50px"}} /> */}
       </Button>
       <p style={textStyle}>홈으로 돌아가기</p>
