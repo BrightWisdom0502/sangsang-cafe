@@ -43,8 +43,12 @@ function Cart(props) {
     hours: today.getHours(), //현재 시간
     minutes: today.getMinutes(), //
   }
-  
+
   let timestring = `${time.year}-${time.month}-${time.date} ${time.hours}:${time.minutes}`;
+  if(time.minutes<10 && time.minutes==0 ){
+    timestring = `${time.year}-${time.month}-${time.date} ${time.hours}:0${time.minutes}`;
+  }
+  
   const submitOrder = () => {
     fetch(`http://localhost:3001/OrderList`, {
     method: "POST" ,
