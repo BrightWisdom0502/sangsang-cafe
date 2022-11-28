@@ -3,7 +3,7 @@ import Cart from './Cart';
 import React, { useState } from "react";
 import { Link } from "react-router-dom";
 import ItemCard from "./itemCard";
-import {CartProvider} from "react-use-cart"
+import { CartProvider } from "react-use-cart"
 import SearchFilter from "react-filter-search"
 import { Button, ToggleButton, ToggleButtonGroup } from 'react-bootstrap';
 import { AiFillHome } from "react-icons/ai";
@@ -26,8 +26,8 @@ const buttonIconStyle = {
 function App() {
   const [menutop, setMenutop] = useState("커피");
   const [Data, setData] = useState(Coffee);
-  const [searchInput,setSearchInput] = useState("");
-  
+  const [searchInput, setSearchInput] = useState("");
+
   const ToHot = () => {
     setData(Data);
     const coffees = Data.filter(item => item.category === "Hot")
@@ -37,7 +37,7 @@ function App() {
     setData(Data);
     const coffees = Data.filter(item => item.category === "Ice")
     setFilter(coffees)
-  } 
+  }
 
   const [filter, setFilter] = useState(Data.filter(item => item.category === "Hot"));
   const coffee = () => {
@@ -46,7 +46,7 @@ function App() {
     const menutop = "커피";
     setFilter(coffees)
     setMenutop(menutop)
-  
+
   }
   const tea = () => {
     setData(Tea)
@@ -69,9 +69,17 @@ function App() {
     setFilter(Desserts)
     setMenutop(menutop)
   }
+  
+  const Top = () => {
+    return <h1>{menutop}</h1>
+  }
+  const Searchtop = () =>{
+    return <h1>검색결과</h1>
+
+  }
 
   console.log(Data, "data");
-  
+
   return (
     <div className='BackGround'>
       <CartProvider>
@@ -80,7 +88,7 @@ function App() {
             <div className='category'>
               <div className='btn_group' role="group" aria-label="Basic mixed styles example">
                 <Button variant="outline-dark" style={buttonStyle}>
-                  <Link style={{color: "inherit", textDecoration: "inherit"}} to="/"><AiFillHome style={buttonIconStyle} /></Link>
+                  <Link style={{ color: "inherit", textDecoration: "inherit" }} to="/"><AiFillHome style={buttonIconStyle} /></Link>
                   {/* <AiFillHome style={{fontSize: "50px"}} /> */}
                 </Button>
                 <button type="button" className="btn_category" onClick={() => coffee()}>커피</button>
@@ -101,7 +109,7 @@ function App() {
               </div>
             </div>
             <div className="product_list">
-              <h1 className="text-center mt-3">{menutop}</h1>
+              <h1 className="text-center">{searchInput.length !== 0 ? <Searchtop/> : <Top/> }</h1>
               <div className='menus' style={{ width: "100%", overflow: "auto", display: "flex" }}>
                 <div style={{ display: "flex", overflow: "auto" }}>
                   <SearchFilter
